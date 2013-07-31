@@ -15,3 +15,9 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
+Route::get('/jobs', function() {
+    $jobs = Job::all();
+
+    return Response::json($jobs->toArray(), 200);
+});
