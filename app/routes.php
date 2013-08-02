@@ -17,7 +17,24 @@ Route::get('/', function()
 });
 
 Route::get('/jobs', function() {
-    $jobs = Job::all();
+    $jobs = Job::where('is_active', '=', 1)->orderBy('created_on', 'desc')->take(20)->get();
 
-    return Response::json($jobs->toArray(), 200);
+    $jobsFormatted = array();
+    foreach ($jobs as $job) {
+        $jobArray = array(
+            'id' => $job->id,
+            'title' => $job->title,
+            'description' => $job->description,
+            'company' => $job->company,
+            'created_on' => $job->created_on
+        );
+
+        if ($job->city) {
+            $jobArray['city'] = $job->city->name;
+        }
+
+        $jobsFormatted[] = $jobArray;
+    }
+
+    return Response::json($jobsFormatted, 200);
 });
