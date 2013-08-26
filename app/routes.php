@@ -26,7 +26,8 @@ Route::get('/jobs', function() {
             'title' => $job->title,
             'description' => $job->description,
             'company' => $job->company,
-            'created_on' => $job->created_on
+            'created_on' => $job->created_on,
+            'url' => 'http://www.designjobswales.co.uk/job/'.$job->id.'/'
         );
 
         if ($job->city) {
