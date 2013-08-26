@@ -32,6 +32,12 @@ Route::get('/jobs', function() {
 
         if ($job->city) {
             $jobArray['city'] = $job->city->name;
+        } else {
+            if ($job->outside_location) {
+                $jobArray['city'] = $job->outside_location;
+            } else {
+                $jobArray['city'] = 'n/a';
+            }
         }
 
         $jobsFormatted[] = $jobArray;
