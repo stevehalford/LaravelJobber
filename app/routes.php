@@ -11,7 +11,17 @@
 |
 */
 
+
+View::composer('layouts.base', function($view)
+{
+    $categories = Category::orderBy('category_order')->get();
+    $view->with('categories', $categories);
+});
+
+Route::pattern('id', '[0-9]+');
 Route::get('/', 'HomeController@index');
+
+Route::get('/job/{id}', 'JobController@show');
 
 Route::get('/jobs', function() {
     $jobs = Job::where('is_active', '=', 1)->orderBy('created_on', 'desc')->take(20)->get();

@@ -35,22 +35,19 @@
 <body>
     <div id="container">
                 <div id="header">
-            <h1 id="logo"><a href="http://www.designjobswales.co.uk/" title="Design Jobs Wales">Design Jobs Wales</a></h1>
+            <h1 id="logo"><a href="{{ Config::get('app.url') }}" title="Design Jobs Wales">Design Jobs Wales</a></h1>
             <div id="comms">
-                <a href="http://www.designjobswales.co.uk/rss/all/" title="Subscribe to the Jobs RSS feed" id="rss">Jobs RSS</a>
+                <a href="{{ Config::get('app.url') }}/rss/all/" title="Subscribe to the Jobs RSS feed" id="rss">Jobs RSS</a>
                 <a href="http://blog.designjobswales.co.uk/feed/" title="Subscribe to the Blog RSS feed" id="rss">Blog RSS</a>
                 <a href="http://www.twitter.com/designjobswales" id="twitter">Follow Us</a>
             </div>
 
             <div id="categs-nav">
-              <ul>
-                                                    <li id="web-design"><a href="http://www.designjobswales.co.uk/jobs/web-design/" title="web-design"><span>Web Design</span></a></li>
-                                                    <li id="development"><a href="http://www.designjobswales.co.uk/jobs/development/" title="development"><span>Development</span></a></li>
-                                                    <li id="print"><a href="http://www.designjobswales.co.uk/jobs/print/" title="print"><span>Print</span></a></li>
-                                                    <li id="illustration"><a href="http://www.designjobswales.co.uk/jobs/illustration/" title="illustration"><span>Illustration</span></a></li>
-                                                    <li id="management"><a href="http://www.designjobswales.co.uk/jobs/management/" title="management"><span>Management</span></a></li>
-                                                    <li id="other"><a href="http://www.designjobswales.co.uk/jobs/other/" title="other"><span>Other</span></a></li>
-                                                <li><a href="http://blog.designjobswales.co.uk">Blog</a></li>
+                <ul>
+                    @foreach($categories as $category)
+                        <li id="{{ $category->var_name }}"><a href="{{ Config::get('app.url') . '/jobs/' . $category->var_name }}" title="{{ $category->title }}"><span>{{ $category->name }}</span></a></li>
+                    @endforeach
+                    <li><a href="http://blog.designjobswales.co.uk">Blog</a></li>
                 </ul>
             </div><!-- #categs-nav -->
 
@@ -76,7 +73,7 @@
         <div id="sidebar">
                     <div class="sidebar_block">
             <div class="addJob">
-                <a href="http://www.designjobswales.co.uk/post/" title="" class="add">Post a job</a>
+                <a href="{{ Config::get('app.url') }}/post/" title="" class="add">Post a job</a>
             </div>
             <div class="text">
                 <p>100% Free (as in beer)</p>
@@ -99,16 +96,16 @@
         <div id="footer-contents">
             <div id="footer-col1">
                 Use:<br>
-                                                                                        <a href="http://www.designjobswales.co.uk/post/" title="Post a new job for free!">Post a new job</a><br>
-                                                                                                <a href="http://www.designjobswales.co.uk/widgets/" title="Would you like to display our latest jobs on your site?">Site widget</a><br>
-                                                                                                <a href="http://www.designjobswales.co.uk/rss/" title="An overview of all our available RSS Feeds.">RSS Feeds</a><br>
-                                                                                                <a href="http://www.designjobswales.co.uk/companies/" title="An overview of all available companies.">Companies</a><br>
-                                                                                                <a href="http://www.designjobswales.co.uk/sitemap/" title="Sitemap">Sitemap</a><br>
+                                                                                        <a href="{{ Config::get('app.url') }}/post/" title="Post a new job for free!">Post a new job</a><br>
+                                                                                                <a href="{{ Config::get('app.url') }}/widgets/" title="Would you like to display our latest jobs on your site?">Site widget</a><br>
+                                                                                                <a href="{{ Config::get('app.url') }}/rss/" title="An overview of all our available RSS Feeds.">RSS Feeds</a><br>
+                                                                                                <a href="{{ Config::get('app.url') }}/companies/" title="An overview of all available companies.">Companies</a><br>
+                                                                                                <a href="{{ Config::get('app.url') }}/sitemap/" title="Sitemap">Sitemap</a><br>
                                                                         </div>
             <div id="footer-col2">
                 Find out more:<br>
-                                                                                        <a href="http://www.designjobswales.co.uk/about/" title="More information about us.">About Us</a><br>
-                                                                                                <a href="http://www.designjobswales.co.uk/contact/" title="Don't hesitate to contact us!">Contact</a><br>
+                                                                                        <a href="{{ Config::get('app.url') }}/about/" title="More information about us.">About Us</a><br>
+                                                                                                <a href="{{ Config::get('app.url') }}/contact/" title="Don't hesitate to contact us!">Contact</a><br>
                                                                                                 <a href="http://www.twitter.com/designjobswales/" title="Follow us on twitter">Follow Us on Twitter</a><br>
                                                                         </div>
             <div id="footer-col3">
@@ -155,7 +152,7 @@
                 {
                     $("#indicator").show(); 
                     clearTimeout(window.search_timer);  
-                    window.search_timer = setTimeout(function(){Jobber.PerformSearch('http://www.designjobswales.co.uk/search/home|', searchKeywords)}, 800);
+                    window.search_timer = setTimeout(function(){Jobber.PerformSearch('{{ Config::get('app.url') }}/search/home|', searchKeywords)}, 800);
                 }
             });
         });
