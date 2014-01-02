@@ -1,6 +1,12 @@
 <?php
 
-class HomeController extends BaseController {
+class HomeController extends BaseController
+{
+
+    public function __construct(JobRepository $jobs)
+    {
+        $this->jobs = $jobs;
+    }
 
     /**
      * Display a listing of the resource.
@@ -9,8 +15,15 @@ class HomeController extends BaseController {
      */
     public function index()
     {
-        $recents = Job::where('is_active', '=', 1)->orderBy('created_on', 'desc')->take(10)->get();
+        $recents = $this->jobs->getMostRecentJobs(10);
+        $popular = $this->jobs->getMostViewedJobs(7);
 
-        return View::make('home.index', array('recents' => $recents));
+        return View::make(
+            'home.index',
+            array(
+                'recents' => $recents,
+                'popular' => $popular
+            )
+        );
     }
 }
