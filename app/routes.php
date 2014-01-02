@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+Route::get('/', 'HomeController@index');
 
 Route::get('/jobs', function() {
     $jobs = Job::where('is_active', '=', 1)->orderBy('created_on', 'desc')->take(20)->get();

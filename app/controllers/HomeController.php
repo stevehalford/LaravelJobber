@@ -2,22 +2,15 @@
 
 class HomeController extends BaseController {
 
-	/*
-	|--------------------------------------------------------------------------
-	| Default Home Controller
-	|--------------------------------------------------------------------------
-	|
-	| You may wish to use controllers instead of, or in addition to, Closure
-	| based routes. That's great! Here is an example controller method to
-	| get you started. To route to this controller, just add the route:
-	|
-	|	Route::get('/', 'HomeController@showWelcome');
-	|
-	*/
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
+    public function index()
+    {
+        $recents = Job::where('is_active', '=', 1)->orderBy('created_on', 'desc')->take(10)->get();
 
-	public function showWelcome()
-	{
-		return View::make('hello');
-	}
-
+        return View::make('home.index', array('recents' => $recents));
+    }
 }
