@@ -20,4 +20,14 @@ class Job extends Model
     {
         return $this->belongsTo('Type', 'type_id');
     }
+
+    public function applications()
+    {
+        return $this->hasMany('Application', 'job_id');
+    }
+
+    public function getApplicantCount()
+    {
+        return count($this->applications);
+    }
 }

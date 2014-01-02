@@ -3,10 +3,15 @@
 @section('body')
     <div id="job-details">
         <div id="applied-to-job">
-            1
-            <p>applicant</p>
+            {{ $job->getApplicantCount() }}
+            @if ($job->getApplicantCount() == 1)
+                <p>applicant</p>
+            @else
+                <p>applicants</p>
+            @endif
         </div>
-        <h2><img src="http://www.designjobswales.co.uk/_templates/djw/img/icon-{{ $job->type->var_name }}.png" alt="{{ $job->type->name }}">
+        <h2>
+            <img src="http://www.designjobswales.co.uk/_templates/djw/img/icon-{{ $job->type->var_name }}.png" alt="{{ $job->type->name }}">
             {{ $job->title }}
         </h2>
         <p>
@@ -16,7 +21,7 @@
         </p>
 
         <div id="job-description">
-            {{ $job->description }}
+            {{ nl2br($job->description) }}
         </div>
         <br>
 
