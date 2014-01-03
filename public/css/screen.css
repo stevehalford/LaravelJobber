@@ -889,6 +889,32 @@ border:1px solid #ccc;
 padding:1px 2px;
 }
 
+#content .pagination ul {
+    margin-left: 0;
+}
+.pagination {
+    margin: 20px 0 0;
+}
+.pagination ul {
+    list-style: none;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+.pagination li {
+    float: left;
+    padding: 2px 4px;
+    margin-right: 3px;
+}
+.pagination li.active {
+    font-weight:700;
+    border:1px solid #ccc;
+    padding:1px 2px;
+}
+.pagination li.disabled {
+    opacity: 0.5;
+}
+
 .row:nth-child(odd) {
 background-color:#e6e1dc;
 background-color: rgba(230,225,220,0.4);
