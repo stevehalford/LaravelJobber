@@ -8,6 +8,6 @@ class Category extends Model
 
     public function jobs()
     {
-        return $this->hasMany('Job', 'category_id');
+        return $this->hasMany('Job', 'category_id')->where('is_active', '=', 1)->orderBy('created_on', 'desc');
     }
 }
