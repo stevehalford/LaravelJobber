@@ -16,9 +16,8 @@
     
     <link rel="shortcut icon" href="http://www.designjobswales.co.uk/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon-precomposed" href="http://www.designjobswales.co.uk/apple-touch-icon.png">
-        <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://www.designjobswales.co.uk/rss/all/">
-        <link rel="stylesheet" href="http://www.designjobswales.co.uk/_templates/djw/css/screen.css" type="text/css" media="screen">
-    <link rel="stylesheet" href="http://www.designjobswales.co.uk/_templates/djw/css/print.css" media="print" type="text/css">
+    <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://www.designjobswales.co.uk/rss/all/">
+    <link rel="stylesheet" href="{{ Config::get('app.url') }}/css/screen.css" type="text/css">
     <script type="text/javascript" async="" src="//d1l6p2sc9645hc.cloudfront.net/tracker.js"></script><script src="http://engine.influads.com/show/v/css/acc_243d287_pub" type="text/javascript" async="" defer=""></script><script src="http://www.designjobswales.co.uk/js/jquery.js" type="text/javascript"></script>
     <!--[if !IE]><script src="http://www.designjobswales.co.uk/js/jquery.history.js" type="text/javascript"></script><![endif]-->
     <script src="http://www.designjobswales.co.uk/js/jquery.form.js" type="text/javascript"></script>
