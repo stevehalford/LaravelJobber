@@ -889,7 +889,7 @@ border:1px solid #ccc;
 padding:1px 2px;
 }
 
-.row:nth-child(even) {
+.row:nth-child(odd) {
 background-color:#e6e1dc;
 background-color: rgba(230,225,220,0.4);
 }

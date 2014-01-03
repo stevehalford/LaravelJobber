@@ -1,11 +1,21 @@
 @extends('layouts.base')
 
 @section('body')
-    <h2>Jobs for {{ $category->name }}</h2>
+    <div class="job-listings">
+        <div id="sort-by-type">
+            Only display
+            @foreach ($types as $type)
+                <a href="{{Config::get('app.url')}}/jobs/web-design/{{$type->var_name}}/" title="{{$category->name}} {{$type->name}}">
+                    <img src="{{Config::get('app.url')}}/img/icon-{{$type->var_name}}.png" alt="{{$type->name}}">
+                </a>
+            @endforeach
+        </div>
+        <h2>Jobs for {{ $category->name }}</h2>
 
-    @foreach ($category->jobs()->paginate(20) as $job)
-        @include('partials/job_row')
-    @endforeach
+        @foreach ($jobs as $job)
+            @include('partials/job_row')
+        @endforeach
 
-    {{ $category->jobs()->paginate(20)->links() }}
+        {{ $jobs->links() }}
+    </div>
 @stop

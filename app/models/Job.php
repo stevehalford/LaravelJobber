@@ -30,4 +30,19 @@ class Job extends Model
     {
         return count($this->applications);
     }
+
+    public function scopeLive($query)
+    {
+        return $query->where('is_active', '=', 1);
+    }
+
+    public function scopeInCategory($query, $categoryId)
+    {
+        return $query->where('category_id', '=', $categoryId);
+    }
+
+    public function scopeOfType($query, $typeId)
+    {
+        return $query->where('type_id', '=', $typeId);
+    }
 }
