@@ -17,7 +17,6 @@ class CategoryController extends BaseController
         }
 
         if (isset($jobtype)) {
-            var_dump('expression');
             $jobs = Job::live()->inCategory($cat->id)->ofType($jobtype->id)->orderBy('created_on', 'desc')->paginate(20);
         } else {
             $jobs = Job::live()->inCategory($cat->id)->orderBy('created_on', 'desc')->paginate(20);
