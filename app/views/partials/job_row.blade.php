@@ -10,7 +10,7 @@
             <span class="la">in</span>
             {{ $job->city->name }}
         @else
-            , Anywhere
+            - Anywhere
         @endif
     </span>
     <span class="time-posted">

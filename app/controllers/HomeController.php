@@ -16,7 +16,7 @@ class HomeController extends BaseController
     public function index()
     {
         $recents = $this->jobs->getMostRecentJobs(10);
-        $popular = $this->jobs->getMostViewedJobs(7);
+        $popular = $this->jobs->getMostAppliedToJobs(7);
 
         return View::make(
             'home.index',

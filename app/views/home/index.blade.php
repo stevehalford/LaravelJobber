@@ -7,7 +7,7 @@
     @endforeach
 
     <br/>
-    <h2>Most viewed jobs</h2>
+    <h2>Most applied to jobs</h2>
     @foreach ($popular as $job)
         <div class="row">
             <span class="row-info">
@@ -25,8 +25,8 @@
                 @endif
             </span>
             <span class="time-posted">
-                <strong>{{ $job->views_count }}</strong>
-                views
+                <strong>{{ $job->apply_count }}</strong>
+                application
             </span>
         </div>
     @endforeach

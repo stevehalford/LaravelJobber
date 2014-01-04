@@ -17,7 +17,11 @@
         <p>
             <span class="fading">at</span>
             <a href="http://{{ $job->url }}">{{ $job->company }}</a>
-            <span class="fading">in</span> <strong>{{ $job->city->name }}</strong>
+            @if ($job->city)
+                <span class="fading">in</span> <strong>{{ $job->city->name }}</strong>
+            @else
+                - Anywhere
+            @endif
         </p>
 
         <div id="job-description">
