@@ -29,7 +29,6 @@ class JobController extends BaseController
             }
         }
 
-
         $job = Job::find($id);
 
         $application = new Application;
