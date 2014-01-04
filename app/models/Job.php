@@ -45,4 +45,15 @@ class Job extends Model
     {
         return $query->where('type_id', '=', $typeId);
     }
+
+    /**
+     * Set the value of the "created at" attribute.
+     *
+     * @param  mixed  $value
+     * @return void
+     */
+    public function setCreatedAt($value)
+    {
+        $this->created_on = $value;
+    }
 }

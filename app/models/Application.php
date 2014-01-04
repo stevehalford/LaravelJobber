@@ -10,4 +10,15 @@ class Application extends Model
     {
         return $this->belongsTo('Job', 'job_id');
     }
+
+    /**
+     * Set the value of the "created at" attribute.
+     *
+     * @param  mixed  $value
+     * @return void
+     */
+    public function setCreatedAt($value)
+    {
+        $this->created_on = $value;
+    }
 }

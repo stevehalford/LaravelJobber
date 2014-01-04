@@ -3,8 +3,8 @@
 @section('body')
     <div id="job-details">
         <div id="applied-to-job">
-            {{ $job->getApplicantCount() }}
-            @if ($job->getApplicantCount() == 1)
+            {{ $job->apply_count }}
+            @if ($job->apply_count == 1)
                 <p>applicant</p>
             @else
                 <p>applicants</p>
