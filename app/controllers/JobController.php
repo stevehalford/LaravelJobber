@@ -50,21 +50,24 @@ class JobController extends BaseController
                 'job_id' => $job->id
             );
 
-            Mail::send(
-                'emails.apply',
-                $data,
-                function ($m) use ($data, $attachment) {
-                    $m->from($data['apply_email'], $data['apply_name']);
-                    $m->to($data['company_email']);
-                    if ($attachment) {
-                        $m->attach($attachment);
+            try {
+                Mail::send(
+                    'emails.apply',
+                    $data,
+                    function ($m) use ($data, $attachment) {
+                        $m->from($data['apply_email'], $data['apply_name']);
+                        $m->to($data['company_email']);
+                        if ($attachment) {
+                            $m->attach($attachment);
+                        }
+                        $m->subject("[Design Jobs Wales] I wish to apply for '" . $data['job_title'] . "'");
                     }
-                    $m->subject("[Design Jobs Wales] I wish to apply for '" . $data['job_title'] . "'");
-                }
-            );
+                );
 
-           return Redirect::action('JobController@show', $job->id)->with('success', 'Application sent successfully');
+                return Redirect::action('JobController@show', $job->id)->with('success', 'Application sent successfully');
+            } catch (Exception $e) {
+                return Redirect::action('JobController@show', $job->id)->with('error', 'Application failed to send');
+            }
         }
-        return Redirect::action('JobController@show', $job->id)->with('error', 'Application failed to send');
     }
 }
