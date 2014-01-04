@@ -21,12 +21,16 @@
                     <span class="la">in</span>
                     {{ $job->city->name }}
                 @else
-                    , Anywhere
+                    @if ($job->outside_location)
+                        - {{ $job->outside_location }}
+                    @else
+                        - Anywhere
+                    @endif
                 @endif
             </span>
             <span class="time-posted">
                 <strong>{{ $job->apply_count }}</strong>
-                application
+                applications
             </span>
         </div>
     @endforeach

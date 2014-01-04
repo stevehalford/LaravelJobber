@@ -20,7 +20,11 @@
             @if ($job->city)
                 <span class="fading">in</span> <strong>{{ $job->city->name }}</strong>
             @else
-                - Anywhere
+                @if ($job->outside_location)
+                    - {{ $job->outside_location }}
+                @else
+                    - Anywhere
+                @endif
             @endif
         </p>
 
