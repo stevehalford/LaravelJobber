@@ -1,5 +1,5 @@
 <div id="apply-online">
-    {{ Form::open(array('action' => array('JobController@apply', $job->id))) }}
+    {{ Form::open(array('action' => array('JobController@apply', $job->id) ,'files' => true)) }}
         {{ Form::token() }}
         <table>
             <tbody><tr>
@@ -26,8 +26,7 @@
             <tr>
                 <td valign="top"><label for="apply_cv">Upload resume/CV:</label></td>
                 <td>
-                    <input type="file" name="apply_cv" id="apply_cv">
-                    <span class="validation-error"></span>
+                    {{ Form::file('apply_cv') }}
                     <div class="suggestion">Max. 3 MB. Recommended formats: PDF, RTF, DOC, ODT. </div>
                 </td>
             </tr>
