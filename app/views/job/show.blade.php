@@ -27,6 +27,8 @@
 
         @if ($job->apply_online)
             <div id="apply_online_now"><a href="#" onclick="$('#apply-online').toggle(); window.location.href = '#apply'; return false;">» Apply now</a></div>
+
+            @include('partials/apply')
         @endif
 
         <br>

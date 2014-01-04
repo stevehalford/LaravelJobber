@@ -5,7 +5,7 @@
     <meta name="keywords" content="design, jobs, wales, cardiff, recruitment, newport, swansea, design jobs, north wales">
     <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8">
     <meta name="author" content="Filip Cherecheş-Toşa (http://www.filipcte.ro)">
-    
+
     <!--facebook og -->
     <meta property="fb:admins" content="789248635">
     <meta property="og:title" content="Design Jobs Wales">
@@ -13,24 +13,20 @@
     <meta property="og:type" content="article">
     <meta property="og:url" content="">
     <meta property="og:image" content="http://www.designjobswales.co.uk/_templates/djw/img/djw-logo.png">
-    
+
     <link rel="shortcut icon" href="http://www.designjobswales.co.uk/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon-precomposed" href="http://www.designjobswales.co.uk/apple-touch-icon.png">
     <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://www.designjobswales.co.uk/rss/all/">
     <link rel="stylesheet" href="{{ Config::get('app.url') }}/css/screen.css" type="text/css">
-    <script type="text/javascript" async="" src="//d1l6p2sc9645hc.cloudfront.net/tracker.js"></script><script src="http://engine.influads.com/show/v/css/acc_243d287_pub" type="text/javascript" async="" defer=""></script><script src="http://www.designjobswales.co.uk/js/jquery.js" type="text/javascript"></script>
     <!--[if !IE]><script src="http://www.designjobswales.co.uk/js/jquery.history.js" type="text/javascript"></script><![endif]-->
-    <script src="http://www.designjobswales.co.uk/js/jquery.form.js" type="text/javascript"></script>
+    <!--<script src="http://www.designjobswales.co.uk/js/jquery.form.js" type="text/javascript"></script>
     <script src="http://www.designjobswales.co.uk/js/cmxforms.js" type="text/javascript"></script>
     <script src="http://www.designjobswales.co.uk/js/jquery.metadata.js" type="text/javascript"></script>
     <script src="http://www.designjobswales.co.uk/js/jquery.validate.min.js" type="text/javascript"></script>
-    <script src="http://www.designjobswales.co.uk/js/functions.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        Jobber.I18n = {"js": {"location_pick_from_list":"Pick one from the list","location_other":"other","send_to_friend_successful":"Your message was sent. Let\'s hope it doesn\'t get marked as spam!","send_to_friend_unsuccessful":"Your message could not be sent. Did you enter both addresses?","report_spam_successful":"Thank you, your vote was registered and is highly appreciated!","report_spam_unsuccessful":"Thank you for your intention, but your vote could not be registered.","delete_job_confirmation_question":"Are you sure you want to delete this post?"}};
-    </script>
+    <script src="http://www.designjobswales.co.uk/js/functions.js" type="text/javascript"></script>-->
 
-    <script id="_influads_projs" type="text/javascript" src="//cdn.buysellads.com/ac/pro.js"></script><script type="text/javascript" id="_bsaPRO_js" src="//srv.buysellads.com/ads/get/ids/CAAIC/?r=1388671200000&amp;segment_CAAIC=network:influads;placement:;circle:" async="async"></script><script>window["_GOOG_TRANS_EXT_VER"] = "1";</script></head>
-
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="{{ Config::get('app.url') }}/scripts/main.js" type="text/javascript"></script>
 <body>
     <div id="container">
                 <div id="header">
@@ -70,20 +66,22 @@
         <div class="clear"></div>
 
         <div id="sidebar">
-                    <div class="sidebar_block">
-            <div class="addJob">
-                <a href="{{ Config::get('app.url') }}/post/" title="" class="add">Post a job</a>
+            <div class="sidebar_block">
+                <div class="addJob">
+                    <a href="{{ Config::get('app.url') }}/post/" title="" class="add">Post a job</a>
+                </div>
+                <div class="text">
+                    <p>100% Free (as in beer)</p>
+                    <p class="smallprint">Just £20 for recruitment agencies</p>
+                </div>
             </div>
-            <div class="text">
-                <p>100% Free (as in beer)</p>
-                <p class="smallprint">Just £20 for recruitment agencies</p>
-            </div>
-        </div>
 
-    <a href="https://itunes.apple.com/us/app/design-jobs-wales/id695154003?ls=1&amp;mt=8" class="appad">
-        <img src="http://www.designjobswales.co.uk/_templates/djw/img/app_ad.png" alt="Get the DJW App">
-    </a>
-                    </div><!-- #sidebar -->
+            @include('partials/influads')
+
+            <a href="https://itunes.apple.com/us/app/design-jobs-wales/id695154003?ls=1&amp;mt=8" class="appad">
+                <img src="http://www.designjobswales.co.uk/_templates/djw/img/app_ad.png" alt="Get the DJW App">
+            </a>
+        </div><!-- #sidebar -->
 
         <div id="content">
 
@@ -120,72 +118,16 @@
             <div class="clear"></div>
         </div><!-- #footer-contents -->
     </div><!-- .footer -->
-    
+
     <script type="text/javascript">
-        //<![CDATA[
-        
-        $(document).ready(function()
-        {
-           var keywords = $('#keywords');
-            // setup search box
-            keywords.bind('click', function() {
-                if (this.value == 'Search Jobs')
-                {
-                    keywords.clearFields();
-                }
-            });
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script><script src="http://www.google-analytics.com/ga.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    try {
+    var pageTracker = _gat._getTracker("UA-162604-4");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
 
-            keywords.bind('blur', function() {  
-                if (this.value == 'Search Jobs' || this.value == '')
-                {
-                    this.value = 'Search Jobs';
-                }
-            });
-
-            // setup live search
-            keywords.keyup(function(key) {
-                var searchKeywords = jQuery.trim(this.value);
-                var len = searchKeywords.length;
-                
-                if (key.keyCode != 9 && len >= 3)
-                {
-                    $("#indicator").show(); 
-                    clearTimeout(window.search_timer);  
-                    window.search_timer = setTimeout(function(){Jobber.PerformSearch('{{ Config::get('app.url') }}/search/home|', searchKeywords)}, 800);
-                }
-            });
-        });
-        Jobber.jobber_url = "http://www.designjobswales.co.uk/";
-        //]]>
-    </script>
-    
-        
-
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script><script src="http://www.google-analytics.com/ga.js" type="text/javascript"></script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-162604-4");
-pageTracker._trackPageview();
-} catch(err) {}</script>
- 
-
-
-<script type="text/javascript">
-    var GoSquared={};
-    GoSquared.acct = "GSN-671392-Q";
-    (function(w){
-        function gs(){
-            w._gstc_lt=+(new Date); var d=document;
-            var g = d.createElement("script"); g.type = "text/javascript"; g.async = true; g.src = "//d1l6p2sc9645hc.cloudfront.net/tracker.js";
-            var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(g, s);
-        }
-        w.addEventListener?w.addEventListener("load",gs,false):w.attachEvent("onload",gs);
-    })(window);
-</script>
-
-
-
-</body></html>
+</body>
+</html>
