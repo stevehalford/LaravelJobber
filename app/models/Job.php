@@ -56,4 +56,15 @@ class Job extends Model
     {
         $this->created_on = $value;
     }
+
+    public function isFirstTimePoster()
+    {
+        $jobs = Job::where('poster_email', '=', $this->poster_email)->where('is_active', '=', 1)->get();
+
+        if (count($jobs)) {
+            return false;
+        }
+
+        return true;
+    }
 }

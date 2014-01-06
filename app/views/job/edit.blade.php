@@ -1,0 +1,103 @@
+@extends('layouts.base')
+
+@section('body')
+
+<div id="content">
+    <div class="steps">
+        <div id="step-1" class="step-active">
+            Step 1: Write
+        </div>
+        <div id="step-2">
+            Step 2: Verify
+        </div>
+        <div id="step-3">
+            Step 3: Confirm
+        </div>
+        <div class="clear"></div>
+    </div>
+    <br />
+
+    {{ Form::model($job, array('url' => URL::action('JobController@update', $job->id), 'method' => 'put', 'id' => 'publish_form')) }}
+        {{ Form::token() }}
+        <fieldset>
+            <legend>Job details</legend>
+            <table border="0" cellspacing="2" cellpadding="2">
+                <tr>
+                    <td colspan="2">
+                        @foreach ($types as $type)
+                            {{ Form::radio('type_id', $type->id, ($job->type_id == $type->id) ? true : false, array('id' => 'type_id_'.$type->id)); }}
+                            <label for="type_id_{{$type->id}}"><img src="{{Config::get('app.url')}}/img/icon-{{$type->var_name}}.png" alt="{{$type->name}}" /></label>
+                        @endforeach
+                        {{ Form::select('category_id', $categories) }}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="publish-label" valign="top">Title:</td>
+                    <td>
+                        {{ Form::text('title', null, array('size' => 50)) }}
+                        {{ $errors->first('title', '<span class="help-inline">:message</span>') }}
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">Location:</td>
+                    <td>
+                        {{ Form::select('city_id', $cities) }}
+                        <a id="other_location_label" href="#">other</a>
+                        <div id="location_outside_ro" {if $job.location_outside_ro != '' OR $smarty.post.location_outside_ro_where != ''}style="display: block;"{else}style="display: none;"{/if}>
+                            where? {{ Form::text('location_outside_ro_where') }}
+                            <div class="suggestion">e.g. London, UK</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">Description:</td>
+                    <td>
+                        {{ Form::textarea('description', null, array('cols' => '80', 'rows' => '15')) }}
+                        {{ $errors->first('description', '<span class="help-inline">:message</span>') }}
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <fieldset>
+            <legend>Hiring company or person</legend>
+            <table border="0" cellspacing="2" cellpadding="2">
+                <tr>
+                    <td class="publish-label">Company Name:</td>
+                    <td>
+                        {{ Form::text('company', null, array('size' => 40)) }}
+                        {{ $errors->first('company', '<span class="help-inline">:message</span>') }}
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">Website:</td>
+                    <td>
+                        http://{{ Form::text('url', null, array('size' => 35)) }}
+                        {{ $errors->first('url', '<span class="help-inline">:message</span>') }}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="publish-label">
+                        Email
+                        <br /><strong>(not published)</strong>:
+                    </td>
+                    <td>
+                        {{ Form::text('poster_email', null, array('size' => 40)) }}
+                        {{ $errors->first('poster_email', '<span class="help-inline">:message</span>') }}
+                        <div class="suggestion">
+                            Online applications will be sent to this address
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <fieldset>
+            {{ Form::checkbox('apply_online', 1, true) }}
+            <strong>Allow Online Applications</strong> (If you are unchecking it, then add a description on how to apply online above)
+        </fieldset>
+
+        <fieldset>
+            <input type="submit" name="submit" id="submit" value="Step 2. Verify ad" />
+        </fieldset>
+    {{ Form::close() }}
+</div>
+@stop

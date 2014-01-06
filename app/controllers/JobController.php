@@ -69,4 +69,164 @@ class JobController extends BaseController
             }
         }
     }
+
+    public function create()
+    {
+        $types = Type::all();
+
+        $categories = array();
+        foreach (Category::all() as $cat) {
+            $categories[$cat->id] = $cat->name;
+        }
+
+        $cities = array(
+            '' => 'Anywhere',
+            '0' => '-- Just over the border --'
+        );
+        foreach (City::all() as $city) {
+            $cities[$city->id] = $city->name;
+        }
+
+        return View::make(
+            'job.post',
+            array(
+                'types' => $types,
+                'categories' => $categories,
+                'cities' => $cities
+            )
+        );
+    }
+
+    public function verify($id)
+    {
+        $job = Job::find($id);
+
+        return View::make(
+            'job.verify',
+            array(
+                'job' => $job
+            )
+        );
+    }
+
+    public function store()
+    {
+        $job = new Job;
+
+        $job->category_id = Input::get('category_id');
+        $job->title = Input::get('title');
+        $job->description = Input::get('description');
+        $job->company = Input::get('company');
+        $job->url = Input::get('url');
+        $job->poster_email = Input::get('poster_email');
+        $job->type_id = (Input::has('type_id')) ? Input::get('type_id') : 1;
+        $job->outside_location = Input::get('location_outside_ro_where');
+
+        if (Input::get('city_id')) {
+            $job->city_id = Input::get('city_id');
+        }
+
+        if (Input::has('apply_online')) {
+            $job->apply_online = Input::get('apply_online');
+        }
+
+        $job->is_temp = 1;
+        $job->is_active = 0;
+        $job->views_count = 0;
+        $job->apply_count = 0;
+
+        $job->auth = md5($job->title . uniqid() . time());
+
+        if ($job->save()) {
+            return Redirect::action('JobController@verify', $job->id);
+        }
+
+        return Redirect::action('JobController@create')->with('error', 'Sorry, we could not create the job for some reason');
+    }
+
+    public function confirm($id)
+    {
+        $job = Job::find($id);
+
+        $job->is_temp = 0;
+
+        if (!$job->isFirstTimePoster()) {
+            $job->is_active = 1;
+        }
+
+        if ($job->save()) {
+            if ($job->is_active) {
+                return Redirect::action('JobController@show', $job->id)->with('success', 'Job posted successfully');
+            } else {
+                return Redirect::action('JobController@confirmation', $job->id);
+            }
+        }
+
+        return Redirect::action('JobController@create')->with('error', 'Sorry, we could not save the job for some reason');
+    }
+
+    public function edit($id)
+    {
+        $job = Job::find($id);
+
+        $types = Type::all();
+
+        $categories = array();
+        foreach (Category::all() as $cat) {
+            $categories[$cat->id] = $cat->name;
+        }
+
+        $cities = array(
+            '' => 'Anywhere',
+            '0' => '-- Just over the border --'
+        );
+        foreach (City::all() as $city) {
+            $cities[$city->id] = $city->name;
+        }
+
+        return View::make(
+            'job.edit',
+            array(
+                'types' => $types,
+                'categories' => $categories,
+                'cities' => $cities,
+                'job' => $job
+            )
+        );
+    }
+
+    public function update($id)
+    {
+        $job = Job::find($id);
+
+        $job->category_id = Input::get('category_id');
+        $job->title = Input::get('title');
+        $job->description = Input::get('description');
+        $job->company = Input::get('company');
+        $job->url = Input::get('url');
+        $job->poster_email = Input::get('poster_email');
+        $job->type_id = (Input::has('type_id')) ? Input::get('type_id') : 1;
+        $job->outside_location = Input::get('location_outside_ro_where');
+
+        if (Input::get('city_id')) {
+            $job->city_id = Input::get('city_id');
+        }
+
+        if (Input::has('apply_online')) {
+            $job->apply_online = Input::get('apply_online');
+        }
+
+        $job->is_temp = 1;
+
+        if ($job->save()) {
+            return Redirect::action('JobController@verify', $job->id);
+        }
+
+        return Redirect::action('JobController@edit')->with('error', 'Sorry, we could not save the job for some reason');
+    }
+
+    public function confirmation($id)
+    {
+        return View::make('job.confirmation');
+    }
 }

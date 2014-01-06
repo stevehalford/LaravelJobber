@@ -24,9 +24,15 @@ Route::get('/', 'HomeController@index');
 
 Route::get('/job/{id}', 'JobController@show');
 Route::post('/job/{id}/apply', 'JobController@apply');
-
 Route::get('/jobs/{category}/{type?}', 'CategoryController@show');
 
+Route::get('/post', 'JobController@create');
+Route::post('/post', 'JobController@store');
+Route::get('/post/{id}', 'JobController@edit');
+Route::put('/post/{id}', 'JobController@update');
+Route::get('/verify/{id}', 'JobController@verify');
+Route::post('/verify/{id}', 'JobController@confirm');
+Route::get('/confirm/{id}', 'JobController@confirmation');
 
 Route::get('/jobs', function() {
     $jobs = Job::where('is_active', '=', 1)->orderBy('created_on', 'desc')->take(20)->get();
