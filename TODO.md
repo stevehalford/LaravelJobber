@@ -7,6 +7,8 @@ TODO
 - Job urls with a slug
 - Pages
 - RSS feeds
-- Post a Job
+- Job Posting form validation
+- Job Posting emails
 - Captcha
 - Search
+- Markdown
