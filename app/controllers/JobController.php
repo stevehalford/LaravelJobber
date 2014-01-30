@@ -156,8 +156,12 @@ class JobController extends BaseController
 
         if ($job->save()) {
             if ($job->is_active) {
+
+                $this->jobPostedEmails($job);
                 return Redirect::action('JobController@show', $job->id)->with('success', 'Job posted successfully');
             } else {
+
+                $jobRequiresConfirmationEmails($jobs);
                 return Redirect::action('JobController@confirmation', $job->id);
             }
         }
@@ -228,5 +232,35 @@ class JobController extends BaseController
     public function confirmation($id)
     {
         return View::make('job.confirmation');
+    }
+
+    private function jobPostedEmails($job)
+    {
+        Mail::send(
+            'emails.admin-publish',
+            $data,
+            function ($m) use ($data, $attachment) {
+                $m->from($data['apply_email'], $data['apply_name']);
+                $m->to($data['company_email']);
+                if ($attachment) {
+                    $m->attach($attachment);
+                }
+                $m->subject("[Design Jobs Wales] I wish to apply for '" . $data['job_title'] . "'");
+            }
+        );
+    }
+
+    private function sendPublishEmailToAdmin($job)
+    {
+        $data['job'] = $job;
+
+        Mail::send(
+            'emails.admin-publish',
+            $data,
+            function ($m) use ($data) {
+                $m->to(Config::get('mail.admin_email'));
+                $m->subject("[Design Jobs Wales] New Job Posted '" . $data['job']['title'] . "'");
+            }
+        );
     }
 }
