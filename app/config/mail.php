@@ -2,6 +2,8 @@
 
 return array(
 
+	'admin_email' => 'steve@inknpixel.co.uk',
+
 	/*
 	|--------------------------------------------------------------------------
 	| Mail Driver
@@ -54,7 +56,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => null, 'name' => null),
+	'from' => array('address' => 'site@designjobswales.co.uk', 'name' => 'Design Jobs Wales'),
 
 	/*
 	|--------------------------------------------------------------------------
