@@ -1,8 +1,8 @@
 <div class="row">
     <span class="row-info">
         <img src="{{ Config::get('app.url') }}/img/icon-{{ $job->type->var_name }}.png" alt="{{ $job->type->name }}">
-        <a href="{{ Config::get('app.url') }}/job/{{ $job->id }}" title="{{ $job->title }}">
-            {{ $job->title }}
+        <a href="{{ URL::action('JobController@show', $job->getSlug()) }}" title="{{ $job->title }}">
+             {{ $job->title }}
         </a>
         <span class="la">at</span>
         {{ $job->company }}
@@ -18,7 +18,12 @@
         @endif
     </span>
     <span class="time-posted">
-        <img src="http://www.designjobswales.co.uk/_templates/djw/img/clock.gif" alt="">
-        {{ date('d-m-Y', strtotime($job->created_on)) }}
+        @if (isset($apply_count) && $apply_count)
+            <strong>{{ $job->apply_count }}</strong>
+            applications
+        @else
+            <img src="http://www.designjobswales.co.uk/_templates/djw/img/clock.gif" alt="">
+            {{ date('d-m-Y', strtotime($job->created_on)) }}
+        @endif
     </span>
 </div>

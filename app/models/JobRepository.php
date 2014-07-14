@@ -16,4 +16,15 @@ class JobRepository
     {
         return Job::where('is_active', '=', 1)->orderBy('created_on', 'desc')->take($limit)->get();
     }
+
+    public function getJobBySlug($slug)
+    {
+        $jobs = Job::where('is_active', '=', 1)->orderBy('created_on', 'desc')->get();
+
+        foreach($jobs as $job) {
+            if ($job->getSlug() == $slug) {
+                return $job;
+            }
+        }
+    }
 }

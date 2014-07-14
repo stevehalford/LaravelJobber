@@ -67,4 +67,9 @@ class Job extends Model
 
         return true;
     }
+
+    public function getSlug()
+    {
+        return Str::slug($this->title . ' at ' . $this->company);
+    }
 }

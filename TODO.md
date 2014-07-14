@@ -1,7 +1,6 @@
 TODO
 ====
 
-- Job urls with a slug
 - Pages
 - RSS feeds
 - Job Posting form validation

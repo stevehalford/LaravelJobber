@@ -22,7 +22,7 @@ Route::pattern('id', '[0-9]+');
 
 Route::get('/', 'HomeController@index');
 
-Route::get('/job/{id}', 'JobController@show');
+Route::get('/job/{job}', 'JobController@show');
 Route::post('/job/{id}/apply', 'JobController@apply');
 Route::get('/jobs/{category}/{type?}', 'CategoryController@show');
 

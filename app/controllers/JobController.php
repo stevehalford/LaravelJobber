@@ -2,9 +2,18 @@
 
 class JobController extends BaseController
 {
-    public function show($id)
+    public function __construct(JobRepository $jobs)
     {
-        $job = Job::find($id);
+        $this->jobs = $jobs;
+    }
+
+    public function show($job)
+    {
+        if (is_numeric($job)) {
+            $job = Job::find($job);
+        } else {
+            $job = $this->jobs->getJobBySlug($job);
+        }
 
         return View::make(
             'job.show',
