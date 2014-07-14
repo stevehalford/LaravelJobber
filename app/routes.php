@@ -34,6 +34,8 @@ Route::get('/verify/{id}', 'JobController@verify');
 Route::post('/verify/{id}', 'JobController@confirm');
 Route::get('/confirm/{id}', 'JobController@confirmation');
 
+Route::get('/{name}', 'PageController@show');
+
 Route::get('/jobs', function() {
     $jobs = Job::where('is_active', '=', 1)->orderBy('created_on', 'desc')->take(20)->get();
 
