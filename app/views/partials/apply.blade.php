@@ -2,42 +2,45 @@
     {{ Form::open(array('action' => array('JobController@apply', $job->id) ,'files' => true)) }}
         {{ Form::token() }}
         <table>
-            <tbody><tr>
-                <td><label for="apply_name">Your name:</label></td>
-                <td>
-                    <input type="text" name="apply_name" id="apply_name" maxlength="50" size="30" value="">
-                    <span class="validation-error"></span>
-                </td>
-            </tr>
-            <tr>
-                <td><label for="apply_email">Your e-mail:</label></td>
-                <td>
-                    <input type="text" name="apply_email" id="apply_email" maxlength="50" size="30" value="">
-                    <span class="validation-error"></span>
-                </td>
-            </tr>
-            <tr>
-                <td valign="top"><label for="apply_msg">Message<br>or letter of intention:</label></td>
-                <td>
-                    <textarea name="apply_msg" id="apply_msg" cols="60" rows="15"></textarea>
-                    <span class="validation-error"></span>
-                </td>
-            </tr>
-            <tr>
-                <td valign="top"><label for="apply_cv">Upload resume/CV:</label></td>
-                <td>
-                    {{ Form::file('apply_cv') }}
-                    <div class="suggestion">Max. 3 MB. Recommended formats: PDF, RTF, DOC, ODT. </div>
-                </td>
-            </tr>
-            <tr><td colspan="2">&nbsp;</td></tr>
-            <tr>
-                <td colspan="2">
-                    <input type="submit" name="submit" id="submit" value="Send my application"> or
-                    <a href="#" id="cancel-apply">cancel</a>
-                </td>
-            </tr>
-        </tbody></table>
+            <tbody>
+                <tr>
+                    <td>{{ Form::label('apply_name', 'Your Name:') }}</td>
+                    <td>
+                        {{ Form::text('apply_name', null, array('required' => 'required', 'maxlength' => '50', 'size' => '30')) }}
+                        {{ $errors->first('apply_name', '<span class="help-inline">:message</span>') }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>{{ Form::label('apply_email', 'Your Email:') }}</td>
+                    <td>
+                        {{ Form::email('apply_email', null, array('required' => 'required', 'maxlength' => '50', 'size' => '30')) }}
+                        {{ $errors->first('apply_email', '<span class="help-inline">:message</span>') }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>{{ Form::label('apply_msg', 'Message or letter of intention:') }}</td>
+                    <td>
+                        {{ Form::textarea('apply_msg', null, array('required' => 'required')) }}
+                        {{ $errors->first('apply_msg', '<span class="help-inline">:message</span>') }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>{{ Form::label('apply_cv', 'Upload resume/CV:') }}</td>
+                    <td>
+                        {{ Form::file('apply_cv') }}
+                        <div class="suggestion">Max. 33 MB. Recommended formats: PDF, RTF, DOC, ODT. </div>
+                        {{ $errors->first('apply_cv', '<span class="help-inline">:message</span>') }}
+                    </td>
+                </tr>
+                <tr><td colspan="2">&nbsp;</td></tr>
+                <tr>
+                    <td colspan="2">
+                        {{ Form::submit('submit', array('id' => 'submit')) }} or
+                        <a href="#" id="cancel-apply">cancel</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
         <input type="hidden" name="job_id" id="job_id" value="2896">
     </form>
 </div>

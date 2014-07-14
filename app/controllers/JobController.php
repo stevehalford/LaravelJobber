@@ -25,7 +25,7 @@ class JobController extends BaseController
             if ($file->move($destinationPath, $filename)) {
                 $attachment = $destinationPath . $filename;
             } else {
-                return Redirect::action('JobController@show', $job->id)->with('error', 'File Upload was not successful');
+                return Redirect::back()->with('error', 'File Upload was not successful');
             }
         }
 
@@ -35,19 +35,21 @@ class JobController extends BaseController
         $application->ip = Request::getClientIp();
         $application->job_id = $job->id;
 
+        $data = array(
+            'apply_email' => Input::get('apply_email'),
+            'apply_name' => Input::get('apply_name'),
+            'apply_msg' => strip_tags(Input::get('apply_msg')),
+            'company_email' => $job->poster_email,
+            'company_name' => $job->company,
+            'job_title' => $job->title,
+            'job_id' => $job->id
+        );
+
+        $application->data = json_encode($data);
+
         if ($application->save()) {
             $job->apply_count = $job->apply_count + 1;
             $job->save();
-
-            $data = array(
-                'apply_email' => Input::get('apply_email'),
-                'apply_name' => Input::get('apply_name'),
-                'apply_msg' => strip_tags(Input::get('apply_msg')),
-                'company_email' => $job->poster_email,
-                'company_name' => $job->company,
-                'job_title' => $job->title,
-                'job_id' => $job->id
-            );
 
             try {
                 Mail::send(
@@ -63,10 +65,13 @@ class JobController extends BaseController
                     }
                 );
 
-                return Redirect::action('JobController@show', $job->id)->with('success', 'Application sent successfully');
+                return Redirect::back()->with('success', 'Application sent successfully');
             } catch (Exception $e) {
-                return Redirect::action('JobController@show', $job->id)->with('error', 'Application failed to send');
+                return Redirect::back()->with('error', 'Application failed to send');
             }
+        } else {
+            var_dump($application->errors()); exit;
+            return Redirect::back()->withInput()->withErrors($application->errors());
         }
     }
 
@@ -141,7 +146,7 @@ class JobController extends BaseController
             return Redirect::action('JobController@verify', $job->id);
         }
 
-        return Redirect::action('JobController@create')->with('error', 'Sorry, we could not create the job for some reason');
+        return Redirect::back()->with('error', 'Sorry, we could not create the job for some reason');
     }
 
     public function confirm($id)
