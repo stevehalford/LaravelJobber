@@ -3,7 +3,11 @@
 @section('body')
     <div id="job-details">
         <div id="applied-to-job">
-            {{ $job->apply_count }}
+            @if ($job->apply_count)
+                {{ $job->apply_count }}
+            @else
+                0
+            @endif
             @if ($job->apply_count == 1)
                 <p>applicant</p>
             @else
