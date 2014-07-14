@@ -6,6 +6,10 @@ class PageController extends BaseController
     {
         $page = Page::where('url', '=', $name)->first();
 
+        if (!$page) {
+            App::abort(404);
+        }
+
         return View::make(
             'page.show',
             array(
