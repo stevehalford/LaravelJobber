@@ -1,7 +1,6 @@
 TODO
 ====
 
-- Validation for apply online form (front end and back end)
 - Send to friend
 - Report spam
 - Job urls with a slug
@@ -12,3 +11,4 @@ TODO
 - Captcha
 - Search
 - Markdown
+- Job applicants count
