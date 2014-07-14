@@ -1,5 +1,9 @@
 @extends('layouts.base')
 
+@section('title', $category->title)
+@section('description', $category->description)
+@section('keywords', $category->keywords)
+
 @section('body')
     <div class="job-listings">
         <div id="sort-by-type">

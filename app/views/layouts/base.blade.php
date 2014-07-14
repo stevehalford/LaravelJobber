@@ -1,8 +1,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><head>
-    <title>Design Jobs Wales</title>
-    <meta name="description" content="Design Jobs Wales makes it easy for agencies and recruiters to fill design jobs in Wales and is a must for design related professionals in Wales.">
-    <meta name="google-site-verification" content="cDP_8iE_SCJ-zDBTvyYwRyZtaP5OS2ZtxStr3bMnN0U">
-    <meta name="keywords" content="design, jobs, wales, cardiff, recruitment, newport, swansea, design jobs, north wales">
+    <title>@yield('title', 'Design Jobs Wales')</title>
+    <meta name="description" content="@yield('description', 'Design Jobs Wales makes it easy for agencies and recruiters to fill design jobs in Wales and is a must for design related professionals in Wales.')">
+    <meta name="keywords" content="@yield('keywords', 'design, jobs, wales, cardiff, recruitment, newport, swansea, design jobs, north wales')}}">
     <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8">
     <meta name="author" content="Filip Cherecheş-Toşa (http://www.filipcte.ro)">
 

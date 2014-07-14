@@ -1,5 +1,7 @@
 @extends('layouts.base')
 
+@section('title', 'Post a Job - Design Jobs Wales')
+
 @section('body')
 <div class="steps">
     <div id="step-1">

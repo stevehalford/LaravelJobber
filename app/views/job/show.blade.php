@@ -1,5 +1,9 @@
 @extends('layouts.base')
 
+@section('title', $job->title . ' at ' . $job->company . ' - Design Jobs Wales')
+@section('description', $job->category->description)
+@section('keywords', $job->category->keywords)
+
 @section('body')
     <div id="job-details">
         <div id="applied-to-job">
