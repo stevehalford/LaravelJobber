@@ -75,7 +75,6 @@ class JobController extends BaseController
                 return Redirect::back()->with('error', 'Application failed to send');
             }
         } else {
-            var_dump($application->errors()); exit;
             return Redirect::back()->withInput()->withErrors($application->errors());
         }
     }
@@ -151,7 +150,7 @@ class JobController extends BaseController
             return Redirect::action('JobController@verify', $job->id);
         }
 
-        return Redirect::back()->with('error', 'Sorry, we could not create the job for some reason');
+        return Redirect::back()->withInput()->withErrors($job->errors());
     }
 
     public function confirm($id)

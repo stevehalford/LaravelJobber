@@ -6,21 +6,21 @@
                 <tr>
                     <td>{{ Form::label('apply_name', 'Your Name:') }}</td>
                     <td>
-                        {{ Form::text('apply_name', null, array('required' => 'required', 'maxlength' => '50', 'size' => '30')) }}
+                        {{ Form::text('apply_name', null, array('required' => 'required', 'maxlength' => '50', 'size' => '30', 'class' => $errors->has('apply_name') ? 'error' : '')) }}
                         {{ $errors->first('apply_name', '<span class="help-inline">:message</span>') }}
                     </td>
                 </tr>
                 <tr>
                     <td>{{ Form::label('apply_email', 'Your Email:') }}</td>
                     <td>
-                        {{ Form::email('apply_email', null, array('required' => 'required', 'maxlength' => '50', 'size' => '30')) }}
+                        {{ Form::email('apply_email', null, array('required' => 'required', 'maxlength' => '50', 'size' => '30', 'class' => $errors->has('apply_email') ? 'error' : '')) }}
                         {{ $errors->first('apply_email', '<span class="help-inline">:message</span>') }}
                     </td>
                 </tr>
                 <tr>
                     <td>{{ Form::label('apply_msg', 'Message or letter of intention:') }}</td>
                     <td>
-                        {{ Form::textarea('apply_msg', null, array('required' => 'required')) }}
+                        {{ Form::textarea('apply_msg', null, array('required' => 'required', 'class' => $errors->has('apply_msg') ? 'error' : '')) }}
                         {{ $errors->first('apply_msg', '<span class="help-inline">:message</span>') }}
                     </td>
                 </tr>

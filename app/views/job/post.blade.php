@@ -27,7 +27,7 @@
                 <tr>
                     <td colspan="2">
                         @foreach ($types as $type)
-                            {{ Form::radio('type_id', $type->id, null, array('id' => 'type_id_'.$type->id)); }}
+                            {{ Form::radio('type_id', $type->id, null, array('id' => 'type_id_'.$type->id, 'required' => 'required')); }}
                             <label for="type_id_{{$type->id}}"><img src="{{Config::get('app.url')}}/img/icon-{{$type->var_name}}.png" alt="{{$type->name}}" /></label>
                         @endforeach
                         {{ Form::select('category_id', $categories) }}
@@ -36,7 +36,7 @@
                 <tr>
                     <td class="publish-label" valign="top">Title:</td>
                     <td>
-                        {{ Form::text('title', null, array('size' => 50)) }}
+                        {{ Form::text('title', null, array('size' => 50, 'class' => $errors->has('title') ? 'error' : '', 'required' => 'required')) }}
                         {{ $errors->first('title', '<span class="help-inline">:message</span>') }}
                     </td>
                 </tr>
@@ -54,7 +54,7 @@
                 <tr>
                     <td valign="top">Description:</td>
                     <td>
-                        {{ Form::textarea('description', null, array('cols' => '80', 'rows' => '15')) }}
+                        {{ Form::textarea('description', null, array('cols' => '80', 'rows' => '15', 'class' => $errors->has('description') ? 'error' : '', 'required' => 'required')) }}
                         {{ $errors->first('description', '<span class="help-inline">:message</span>') }}
                     </td>
                 </tr>
@@ -66,14 +66,14 @@
                 <tr>
                     <td class="publish-label">Company Name:</td>
                     <td>
-                        {{ Form::text('company', null, array('size' => 40)) }}
+                        {{ Form::text('company', null, array('size' => 40, 'class' => $errors->has('company') ? 'error' : '', 'required' => 'required')) }}
                         {{ $errors->first('company', '<span class="help-inline">:message</span>') }}
                     </td>
                 </tr>
                 <tr>
                     <td valign="top">Website:</td>
                     <td>
-                        http://{{ Form::text('url', null, array('size' => 35)) }}
+                        http://{{ Form::text('url', null, array('size' => 35, 'class' => $errors->has('url') ? 'error' : '')) }}
                         {{ $errors->first('url', '<span class="help-inline">:message</span>') }}
                     </td>
                 </tr>
@@ -83,7 +83,7 @@
                         <br /><strong>(not published)</strong>:
                     </td>
                     <td>
-                        {{ Form::text('poster_email', null, array('size' => 40)) }}
+                        {{ Form::email('poster_email', null, array('size' => 40, 'class' => $errors->has('poster_email') ? 'error' : '', 'required' => 'required')) }}
                         {{ $errors->first('poster_email', '<span class="help-inline">:message</span>') }}
                         <div class="suggestion">
                             Online applications will be sent to this address

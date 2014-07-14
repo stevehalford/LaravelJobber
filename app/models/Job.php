@@ -1,10 +1,17 @@
 <?php
 
-use Illuminate\Database\Eloquent\Model;
+use \LaravelBook\Ardent\Ardent;
 
-class Job extends Model
+class Job extends Ardent
 {
     protected $table = 'jobs';
+
+    public static $rules = array(
+        'title' => 'required',
+        'description' => 'required',
+        'company' => 'required',
+        'poster_email' => 'required|email'
+    );
 
     public function city()
     {
