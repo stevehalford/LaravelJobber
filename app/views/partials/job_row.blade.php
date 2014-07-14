@@ -1,7 +1,7 @@
 <div class="row">
     <span class="row-info">
         <img src="{{ Config::get('app.url') }}/img/icon-{{ $job->type->var_name }}.png" alt="{{ $job->type->name }}">
-        <a href="{{ URL::action('JobController@show', $job->getSlug()) }}" title="{{ $job->title }}">
+        <a href="{{ URL::action('JobController@show', array($job->id, $job->getSlug())) }}" title="{{ $job->title }}">
              {{ $job->title }}
         </a>
         <span class="la">at</span>
