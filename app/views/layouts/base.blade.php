@@ -17,12 +17,6 @@
     <link rel="apple-touch-icon-precomposed" href="http://www.designjobswales.co.uk/apple-touch-icon.png">
     <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://www.designjobswales.co.uk/rss/all/">
     <link rel="stylesheet" href="{{ Config::get('app.url') }}/css/screen.css" type="text/css">
-    <!--[if !IE]><script src="http://www.designjobswales.co.uk/js/jquery.history.js" type="text/javascript"></script><![endif]-->
-    <!--<script src="http://www.designjobswales.co.uk/js/jquery.form.js" type="text/javascript"></script>
-    <script src="http://www.designjobswales.co.uk/js/cmxforms.js" type="text/javascript"></script>
-    <script src="http://www.designjobswales.co.uk/js/jquery.metadata.js" type="text/javascript"></script>
-    <script src="http://www.designjobswales.co.uk/js/jquery.validate.min.js" type="text/javascript"></script>
-    <script src="http://www.designjobswales.co.uk/js/functions.js" type="text/javascript"></script>-->
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="{{ Config::get('app.url') }}/scripts/main.js" type="text/javascript"></script>
@@ -50,15 +44,15 @@
         <div id="box">
             <h2 id="tagline">Design and development jobs in Wales and just over the border</h2>
             <div id="search">
+                {{ Form::open(array('action' => 'SearchController@search')) }}
                 <form id="search_form" method="post" action="http://www.designjobswales.co.uk/search/">
                     <fieldset>
                         <div>
-                            <input class="text" type="text" name="keywords" id="keywords" maxlength="30" value="Search Jobs">
+                            {{ Form::text('keywords', null, array('placeholder' => 'Search Jobs', 'class' => 'text', 'max-length' => '30'))}}
                             <input type="submit" name="submit" value="Search" class="submit">
-                            <span id="indicator" style="display: none;"><img src="http://www.designjobswales.co.uk/_templates/djw/img/ajax-loader.gif" alt=""></span>
                         </div>
                     </fieldset>
-                </form>
+                {{ Form::close() }}
             </div><!-- #search -->
         </div><!-- #box -->
 
