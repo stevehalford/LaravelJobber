@@ -1,8 +1,6 @@
 TODO
 ====
 
-- Send to friend
-- Report spam
 - Job urls with a slug
 - Pages
 - RSS feeds
@@ -11,4 +9,3 @@ TODO
 - Captcha
 - Search
 - Markdown
-- Job applicants count
