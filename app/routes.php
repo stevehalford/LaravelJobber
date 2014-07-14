@@ -36,6 +36,9 @@ Route::get('/confirm/{id}', 'JobController@confirmation');
 
 Route::post('/search', 'SearchController@search');
 
+Route::get('/rss', 'RssController@index');
+Route::get('/rss/{name}', 'RssController@feed');
+
 Route::get('/{name}', 'PageController@show');
 
 Route::get('/jobs', function() {

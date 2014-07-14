@@ -3,7 +3,9 @@
 	"description": "The Laravel Framework.",
 	"keywords": ["framework", "laravel"],
 	"require": {
-		"laravel/framework": "4.0.*"
+		"laravel/framework": "4.0.*",
+		"laravelbook/ardent": "2.*",
+		"thujohn/rss": "dev-master"
 	},
 	"autoload": {
 		"classmap": [
