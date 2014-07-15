@@ -261,7 +261,7 @@ class JobController extends BaseController
 
         $job->is_active = 1;
 
-        if ($job->save) {
+        if ($job->save()) {
             return Redirect::to('/')->with('success', 'Job activated successfully');;
         }
 
@@ -278,7 +278,7 @@ class JobController extends BaseController
 
         $job->is_active = 0;
 
-        if ($job->save) {
+        if ($job->save()) {
             return Redirect::to('/')->with('success', 'Job deactivated successfully');;
         }
 
