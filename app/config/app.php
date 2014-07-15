@@ -114,6 +114,7 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Thujohn\Rss\RssServiceProvider',
+		'MaxHoffmann\Parsedown\ParsedownServiceProvider',
 
 	),
 
@@ -180,6 +181,7 @@ return array(
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
 		'Rss'    		  => 'Thujohn\Rss\RssFacade',
+		'Markdown'        => 'MaxHoffmann\Parsedown\ParsedownFacade',
 
 	),
 

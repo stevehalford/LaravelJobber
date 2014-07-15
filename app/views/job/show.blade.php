@@ -37,7 +37,7 @@
         </p>
 
         <div id="job-description">
-            {{ $job->description }}
+            {{ Markdown::parse($job->description) }}
         </div>
         <br>
 

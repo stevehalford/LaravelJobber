@@ -6,7 +6,8 @@
 		"laravel/framework": "4.0.*",
 		"laravelbook/ardent": "2.*",
 		"thujohn/rss": "dev-master",
-		"netcarver/textile": "3.5.*"
+		"netcarver/textile": "3.5.*",
+		"maxhoffmann/parsedown-laravel": "dev-master"
 	},
 	"autoload": {
 		"classmap": [

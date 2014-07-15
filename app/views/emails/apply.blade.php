@@ -1,1 +1,1 @@
-{{ $apply_msg }}
+{{ Markdown::parse($apply_msg) }}

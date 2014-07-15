@@ -7,5 +7,5 @@ $(document).ready(function() {
 
     $('#cancel-apply').click(function() {
         $('#apply-online').hide();
-    })
+    });
 });
