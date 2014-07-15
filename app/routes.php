@@ -28,11 +28,12 @@ Route::get('/jobs/{category}/{type?}', 'CategoryController@show');
 
 Route::get('/post', 'JobController@create');
 Route::post('/post', 'JobController@store');
-Route::get('/post/{id}', 'JobController@edit');
+Route::get('/post/{id}/{auth}', 'JobController@edit');
 Route::put('/post/{id}', 'JobController@update');
 Route::get('/verify/{id}', 'JobController@verify');
 Route::post('/verify/{id}', 'JobController@confirm');
 Route::get('/confirm/{id}', 'JobController@confirmation');
+Route::put('/deactivate/{id}/{auth}', 'JobController@deactivate');
 
 Route::post('/search', 'SearchController@search');
 

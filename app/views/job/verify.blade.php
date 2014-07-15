@@ -51,7 +51,7 @@
             </div>
             <input type="submit" name="submit" id="submit" value="Publish" />
             &nbsp;or&nbsp;
-            <a href="{{URL::action('JobController@edit', $job->id)}}" title="Edit">Edit it</a>
+            <a href="{{URL::action('JobController@edit', array($job->id, $job->auth))}}" title="Edit">Edit it</a>
         </fieldset>
     {{ Form::close() }}
 

@@ -11,6 +11,10 @@ class JobController extends BaseController
     {
         $job = Job::find($id);
 
+        if (!$job || !$job->is_active) {
+            App::abort(404);
+        }
+
         return View::make(
             'job.show',
             array(
@@ -164,23 +168,27 @@ class JobController extends BaseController
         }
 
         if ($job->save()) {
-            if ($job->is_active) {
+            $this->sendPublishEmailToAdmin($job);
 
-                $this->jobPostedEmails($job);
+            if ($job->is_active) {
+                $this->jobPostedEmail($job);
                 return Redirect::action('JobController@show', $job->id)->with('success', 'Job posted successfully');
             } else {
-
-                $jobRequiresConfirmationEmails($jobs);
+                $this->setFirstTimePublisherEmail($job);
                 return Redirect::action('JobController@confirmation', $job->id);
             }
         }
 
-        return Redirect::action('JobController@create')->with('error', 'Sorry, we could not save the job for some reason');
+        return Redirect::back()->with('error', 'Sorry, we could not save the job for some reason');
     }
 
-    public function edit($id)
+    public function edit($id, $auth)
     {
         $job = Job::find($id);
+
+        if (!$job || $job->auth != $auth) {
+            App::abort(404);
+        }
 
         $types = Type::all();
 
@@ -235,7 +243,7 @@ class JobController extends BaseController
             return Redirect::action('JobController@verify', $job->id);
         }
 
-        return Redirect::action('JobController@edit')->with('error', 'Sorry, we could not save the job for some reason');
+        return Redirect::back()->with('error', 'Sorry, we could not save the job for some reason');
     }
 
     public function confirmation($id)
@@ -243,18 +251,46 @@ class JobController extends BaseController
         return View::make('job.confirmation');
     }
 
-    private function jobPostedEmails($job)
+    public function deactivate($id, $auth)
     {
+        $job = Job::find($id);
+
+        if (!$job || $job->auth != $auth) {
+            App::abort(404);
+        }
+
+        $job->is_active = 0;
+
+        if ($job->save) {
+            return Redirect::to('/')->with('success', 'Job deactivated successfully');;
+        }
+
+        return Redirect::action('JobController@show', $job->id)->with('error', 'Sorry, job could not be deactivated');
+    }
+
+    private function setFirstTimePublisherEmail($job) {
+        $data['job'] = $job;
+
         Mail::send(
-            'emails.admin-publish',
+            'emails.poster-firsttime',
+            $data,
+            function ($m) use ($data) {
+                $m->to($data['job']->poster_email);
+                $m->subject("Your ad on Design Jobs Wales");
+            }
+        );
+    }
+
+    private function jobPostedEmail($job)
+    {
+        $data['job'] = $job;
+
+        Mail::send(
+            'emails.poster-publish',
             $data,
             function ($m) use ($data, $attachment) {
-                $m->from($data['apply_email'], $data['apply_name']);
-                $m->to($data['company_email']);
-                if ($attachment) {
-                    $m->attach($attachment);
-                }
-                $m->subject("[Design Jobs Wales] I wish to apply for '" . $data['job_title'] . "'");
+                $m->to($data['job']->poster_email);
+                $m->subject("Your ad on Design Jobs Wales was published");
             }
         );
     }
