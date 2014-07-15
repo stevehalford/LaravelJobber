@@ -4,6 +4,8 @@ return array(
 
     'debug' => false,
 
-    'url' => 'http://api.designjobswales.co.uk/',
+    'parseNotify' => false,
+
+    'url' => 'http://api.designjobswales.co.uk',
 
 );
