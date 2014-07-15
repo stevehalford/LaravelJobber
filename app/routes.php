@@ -40,8 +40,6 @@ Route::post('/search', 'SearchController@search');
 Route::get('/rss', 'RssController@index');
 Route::get('/rss/{name}', 'RssController@feed');
 
-Route::get('/{name}', 'PageController@show');
-
 Route::get('/jobs', function() {
     $jobs = Job::live()->orderBy('created_on', 'desc')->take(20)->get();
 
@@ -71,3 +69,5 @@ Route::get('/jobs', function() {
 
     return Response::json($jobsFormatted, 200);
 });
+
+Route::get('/{name}', 'PageController@show');
