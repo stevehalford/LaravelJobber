@@ -30,7 +30,7 @@ $env = $app->detectEnvironment(array(
 
     'local' => array('djw'),
     'staging' => array('api.designjobswales.co.uk'),
-    'production' => array('*.com'),
+    'production' => array('www.designjobswales.co.uk'),
 ));
 
 /*
