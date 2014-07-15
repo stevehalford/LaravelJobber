@@ -1,5 +1,5 @@
 TODO
 ====
 
-- Job Posting emails
+- Push Notification
 - Captcha
