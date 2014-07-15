@@ -251,6 +251,23 @@ class JobController extends BaseController
         return View::make('job.confirmation');
     }
 
+    public function activate($id, $auth)
+    {
+        $job = Job::find($id);
+
+        if (!$job || $job->auth != $auth) {
+            App::abort(404);
+        }
+
+        $job->is_active = 1;
+
+        if ($job->save) {
+            return Redirect::to('/')->with('success', 'Job activated successfully');;
+        }
+
+        return Redirect::action('JobController@show', $job->id)->with('error', 'Sorry, job could not be activated');
+    }
+
     public function deactivate($id, $auth)
     {
         $job = Job::find($id);

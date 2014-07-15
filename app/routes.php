@@ -33,7 +33,8 @@ Route::put('/post/{id}', 'JobController@update');
 Route::get('/verify/{id}', 'JobController@verify');
 Route::post('/verify/{id}', 'JobController@confirm');
 Route::get('/confirm/{id}', 'JobController@confirmation');
-Route::put('/deactivate/{id}/{auth}', 'JobController@deactivate');
+Route::get('/activate/{id}/{auth}', 'JobController@activate');
+Route::get('/deactivate/{id}/{auth}', 'JobController@deactivate');
 
 Route::post('/search', 'SearchController@search');
 
