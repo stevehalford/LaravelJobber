@@ -60,6 +60,8 @@ class JobController extends BaseController
             $job->apply_count = $job->apply_count + 1;
             $job->save();
 
+            $data['job'] = $job;
+
             try {
                 Mail::send(
                     array('text' => 'emails.apply'),
