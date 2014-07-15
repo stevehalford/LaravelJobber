@@ -1,1 +1,1 @@
-{{ nl2br($apply_msg) }}
+{{ $apply_msg }}

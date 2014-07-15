@@ -37,7 +37,7 @@
         </p>
 
         <div id="job-description">
-            {{ nl2br($job->description) }}
+            {{ $job->description }}
         </div>
         <br>
 

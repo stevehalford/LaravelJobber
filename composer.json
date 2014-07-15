@@ -5,7 +5,8 @@
 	"require": {
 		"laravel/framework": "4.0.*",
 		"laravelbook/ardent": "2.*",
-		"thujohn/rss": "dev-master"
+		"thujohn/rss": "dev-master",
+		"netcarver/textile": "3.5.*"
 	},
 	"autoload": {
 		"classmap": [
