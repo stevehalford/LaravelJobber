@@ -718,6 +718,18 @@ border-bottom:1px solid #ddd;
 padding:10px 0;
 }
 
+#job-description h1 {
+    font-size: 18px;
+}
+
+#job-description h2 {
+    font-size: 16px;
+}
+
+#job-description h3 {
+    font-size: 14px;
+}
+
 a {
 color:#666;
 background-color:transparent;

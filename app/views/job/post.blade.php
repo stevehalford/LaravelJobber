@@ -56,6 +56,7 @@
                     <td>
                         {{ Form::textarea('description', null, array('cols' => '80', 'rows' => '15', 'class' => $errors->has('description') ? 'error' : '', 'required' => 'required')) }}
                         {{ $errors->first('description', '<span class="help-inline">:message</span>') }}
+                        <div class="suggestion">You can use <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">markdown</a> to style your text.</div>
                     </td>
                 </tr>
             </table>
