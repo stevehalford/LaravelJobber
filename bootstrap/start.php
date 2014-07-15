@@ -29,7 +29,7 @@ $app->redirectIfTrailingSlash();
 $env = $app->detectEnvironment(array(
 
     'local' => array('djw'),
-    'staging' => array('*.staging-server.org'),
+    'staging' => array('api.designjobswales.co.uk'),
     'production' => array('*.com'),
 ));
 

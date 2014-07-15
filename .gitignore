@@ -3,7 +3,7 @@
 composer.phar
 .DS_Store
 
-/app/config/local/*
-/app/config/staging/*
-/app/config/production/*
+/app/config/local/database.php
+/app/config/staging/database.php
+/app/config/production/database.php
 /public/storage/*
