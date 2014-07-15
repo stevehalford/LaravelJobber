@@ -62,7 +62,7 @@ class JobController extends BaseController
 
             try {
                 Mail::send(
-                    'emails.apply',
+                    array('text' => 'emails.apply'),
                     $data,
                     function ($m) use ($data, $attachment) {
                         $m->from($data['apply_email'], $data['apply_name']);
@@ -319,7 +319,7 @@ class JobController extends BaseController
         $data['job'] = $job;
 
         Mail::send(
-            'emails.poster-firsttime',
+            array('text' => 'emails.poster-firsttime'),
             $data,
             function ($m) use ($data) {
                 $m->to($data['job']->poster_email);
@@ -333,7 +333,7 @@ class JobController extends BaseController
         $data['job'] = $job;
 
         Mail::send(
-            'emails.poster-publish',
+            array('text' => 'emails.poster-publish'),
             $data,
             function ($m) use ($data, $attachment) {
                 $m->to($data['job']->poster_email);
@@ -347,7 +347,7 @@ class JobController extends BaseController
         $data['job'] = $job;
 
         Mail::send(
-            'emails.admin-publish',
+            array('text' => 'emails.admin-publish'),
             $data,
             function ($m) use ($data) {
                 $m->to(Config::get('mail.admin_email'));
