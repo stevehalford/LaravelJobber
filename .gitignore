@@ -8,3 +8,4 @@ composer.phar
 /app/config/production/database.php
 /public/storage/*
 /app/config/packages/greggilbert/recaptcha/config.php
+/app/config/packages/greggilbert/recaptcha/local/config.php
