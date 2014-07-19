@@ -17,13 +17,17 @@ class RssController extends BaseController
 
     public function feed($name)
     {
-        $category = Category::where('var_name', '=', $name)->first();
+        if ($name == 'all') {
+            $jobs = Job::live()->orderBy('created_on', 'desc')->limit(10)->get();
+        } else {
+            $category = Category::where('var_name', '=', $name)->first();
 
-        if (!$category) {
-            App::abort(404);
+            if (!$category) {
+                App::abort(404);
+            }
+
+            $jobs = Job::live()->inCategory($category->id)->orderBy('created_on', 'desc')->limit(10)->get();
         }
-
-        $jobs = Job::live()->inCategory($category->id)->orderBy('created_on', 'desc')->limit(10)->get();
 
         $feed = Rss::feed('2.0', 'UTF-8');
         $feed->channel(
