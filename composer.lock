@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1df63aca1cc79f92fd746954a8fd0a27",
+    "hash": "7bdb74fb685820a637e639b16dc95b17",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -633,6 +633,58 @@
                 "zf2"
             ],
             "time": "2013-06-10 12:22:13"
+        },
+        {
+            "name": "greggilbert/recaptcha",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/greggilbert/recaptcha.git",
+                "reference": "c2f49a56de656b4d4f96bd83fc4e131d9a120040"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/greggilbert/recaptcha/zipball/c2f49a56de656b4d4f96bd83fc4e131d9a120040",
+                "reference": "c2f49a56de656b4d4f96bd83fc4e131d9a120040",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "*",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/migrations"
+                ],
+                "psr-0": {
+                    "Greggilbert\\Recaptcha": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Greg Gilbert",
+                    "email": "greg@greg-gilbert.com"
+                }
+            ],
+            "description": "reCAPTCHA Validator for Laravel 4",
+            "homepage": "http://github.com/greggilbert/recaptcha",
+            "keywords": [
+                "captcha",
+                "laravel",
+                "laravel4",
+                "recaptcha"
+            ],
+            "time": "2014-05-03 04:11:46"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -2118,7 +2170,8 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "thujohn/rss": 20,
-        "maxhoffmann/parsedown-laravel": 20
+        "maxhoffmann/parsedown-laravel": 20,
+        "greggilbert/recaptcha": 20
     },
     "platform": [
 

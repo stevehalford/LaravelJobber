@@ -10,8 +10,14 @@ class Job extends Ardent
         'title' => 'required',
         'description' => 'required',
         'company' => 'required',
-        'poster_email' => 'required|email'
+        'poster_email' => 'required|email',
+        'recaptcha_response_field' => 'required|recaptcha',
     );
+
+    public function afterValidate() {
+        unset($this->recaptcha_response_field);
+        return true;
+    }
 
     public function city()
     {

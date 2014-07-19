@@ -7,3 +7,4 @@ composer.phar
 /app/config/staging/database.php
 /app/config/production/database.php
 /public/storage/*
+/app/config/packages/greggilbert/recaptcha/config.php

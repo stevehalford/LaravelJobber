@@ -7,7 +7,8 @@
 		"laravelbook/ardent": "2.*",
 		"thujohn/rss": "dev-master",
 		"netcarver/textile": "3.5.*",
-		"maxhoffmann/parsedown-laravel": "dev-master"
+		"maxhoffmann/parsedown-laravel": "dev-master",
+		"greggilbert/recaptcha": "dev-master"
 	},
 	"autoload": {
 		"classmap": [
