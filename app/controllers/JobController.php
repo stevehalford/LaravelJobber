@@ -322,41 +322,59 @@ class JobController extends BaseController
     private function setFirstTimePublisherEmail($job) {
         $data['job'] = $job;
 
-        Mail::send(
-            array('text' => 'emails.poster-firsttime'),
-            $data,
-            function ($m) use ($data) {
-                $m->to($data['job']->poster_email);
-                $m->subject("Your ad on Design Jobs Wales");
-            }
-        );
+        try {
+            Mail::send(
+                array('text' => 'emails.poster-firsttime'),
+                $data,
+                function ($m) use ($data) {
+                    $m->to($data['job']->poster_email);
+                    $m->subject("Your ad on Design Jobs Wales");
+                }
+            );
+
+            return true;
+        } catch (Exception $e) {
+            return false;
+        }
     }
 
     private function jobPostedEmail($job)
     {
         $data['job'] = $job;
 
-        Mail::send(
-            array('text' => 'emails.poster-publish'),
-            $data,
-            function ($m) use ($data, $attachment) {
-                $m->to($data['job']->poster_email);
-                $m->subject("Your ad on Design Jobs Wales was published");
-            }
-        );
+        try {
+            Mail::send(
+                array('text' => 'emails.poster-publish'),
+                $data,
+                function ($m) use ($data, $attachment) {
+                    $m->to($data['job']->poster_email);
+                    $m->subject("Your ad on Design Jobs Wales was published");
+                }
+            );
+
+            return true;
+        } catch (Exception $e) {
+            return false;
+        }
     }
 
     private function sendPublishEmailToAdmin($job)
     {
         $data['job'] = $job;
 
-        Mail::send(
-            array('text' => 'emails.admin-publish'),
-            $data,
-            function ($m) use ($data) {
-                $m->to(Config::get('mail.admin_email'));
-                $m->subject("[Design Jobs Wales] New Job Posted '" . $data['job']['title'] . "'");
-            }
-        );
+        try {
+            Mail::send(
+                array('text' => 'emails.admin-publish'),
+                $data,
+                function ($m) use ($data) {
+                    $m->to(Config::get('mail.admin_email'));
+                    $m->subject("[Design Jobs Wales] New Job Posted '" . $data['job']['title'] . "'");
+                }
+            );
+
+            return true;
+        } catch (Exception $e) {
+            return false;
+        }
     }
 }
