@@ -13,8 +13,6 @@
 
 $app = new Illuminate\Foundation\Application;
 
-$app->redirectIfTrailingSlash();
-
 /*
 |--------------------------------------------------------------------------
 | Detect The Application Environment
@@ -27,10 +25,9 @@ $app->redirectIfTrailingSlash();
 */
 
 $env = $app->detectEnvironment(array(
-
-    'local' => array('djw'),
-    'staging' => array('api.designjobswales.co.uk'),
-    'production' => array('www.designjobswales.co.uk'),
+    'local' => array('djw', 'steves-mbp', 'vagrant'),
+    'staging' => array('api.designjobswales.co.uk', 'ps122405'),
+    'production' => array('www.designjobswales.co.uk', 'ps122405'),
 ));
 
 /*
