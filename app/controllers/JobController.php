@@ -175,7 +175,7 @@ class JobController extends BaseController
             $this->sendPublishEmailToAdmin($job);
 
             if ($job->is_active) {
-                if (Config::get('app.parseNotify')) $this->parseNotify();
+                if (Config::get('app.parseNotify')) $this->parseNotify($job);
                 $this->jobPostedEmail($job);
                 return Redirect::action('JobController@show', $job->id)->with('success', 'Job posted successfully');
             } else {
@@ -267,7 +267,7 @@ class JobController extends BaseController
         $job->is_active = 1;
 
         if ($job->save()) {
-            if (Config::get('app.parseNotify')) $this->parseNotify();
+            if (Config::get('app.parseNotify')) $this->parseNotify($job);
             return Redirect::to('/')->with('success', 'Job activated successfully');;
         }
 
@@ -291,7 +291,7 @@ class JobController extends BaseController
         return Redirect::action('JobController@show', $job->id)->with('error', 'Sorry, job could not be deactivated');
     }
 
-    private function parseNotify()
+    private function parseNotify($job)
     {
         // Parse notification
         $ch = curl_init();
@@ -301,7 +301,7 @@ class JobController extends BaseController
                 'deviceType' => 'ios'
             ),
             'data' => array(
-                'alert' => 'New Job Posted: '.$this->mTitle
+                'alert' => 'New Job Posted: '.$job->title
             )
         );
 
