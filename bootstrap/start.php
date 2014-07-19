@@ -26,7 +26,7 @@ $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment(array(
     'local' => array('djw', 'steves-mbp', 'vagrant'),
-    'staging' => array('api.designjobswales.co.uk', 'ps122405'),
+    'staging' => array('api.designjobswales.co.uk'),
     'production' => array('www.designjobswales.co.uk', 'ps122405'),
 ));
 
