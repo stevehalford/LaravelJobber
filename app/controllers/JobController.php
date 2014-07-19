@@ -346,7 +346,7 @@ class JobController extends BaseController
             Mail::send(
                 array('text' => 'emails.poster-publish'),
                 $data,
-                function ($m) use ($data, $attachment) {
+                function ($m) use ($data) {
                     $m->to($data['job']->poster_email);
                     $m->subject("Your ad on Design Jobs Wales was published");
                 }
