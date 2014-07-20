@@ -1,10 +1,20 @@
 <?php
 
-use Illuminate\Database\Eloquent\Model;
+use \LaravelBook\Ardent\Ardent;
 
-class Application extends Model
+class Application extends Ardent
 {
     protected $table = 'job_applications';
+
+    public static $rules = array(
+        'job_id' => 'required',
+        'recaptcha_response_field' => 'sometimes|required|recaptcha',
+    );
+
+    public function afterValidate() {
+        unset($this->recaptcha_response_field);
+        return true;
+    }
 
     public function job()
     {
