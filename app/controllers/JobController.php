@@ -69,6 +69,8 @@ class JobController extends BaseController
                     function ($m) use ($data, $attachment) {
                         $m->from($data['apply_email'], $data['apply_name']);
                         $m->to($data['company_email']);
+                        $m->bcc($data['apply_email']);
+                        $m->bcc(Config::get('mail.admin_email'));
                         if ($attachment) {
                             $m->attach($attachment);
                         }
