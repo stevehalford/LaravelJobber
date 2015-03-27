@@ -2,7 +2,6 @@
 <p><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="designjobswales">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></p>
 
 <!--facebook like button -->
-{literal}
 <!--<p><fb:like show_faces="false"></fb:like></p>-->
 <div id="fb-root"></div>
 <script>
