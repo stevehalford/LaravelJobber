@@ -270,6 +270,7 @@ class JobController extends BaseController
 
         if ($job->save()) {
             if (Config::get('app.parseNotify')) $this->parseNotify($job);
+            $this->jobPostedEmail($job);
             return Redirect::to('/')->with('success', 'Job activated successfully');;
         }
 
