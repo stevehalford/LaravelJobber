@@ -54,7 +54,8 @@ class RssController extends BaseController
                 array(
                     'title' => '[' . $job->type->name . '] ' . $job->title . ' at ' . $job->company . ' (' . $location . ')',
                     'description' => Markdown::parse($job->description),
-                    'link' => URL::action('JobController@show', array($job->id, $job->getSlug()))
+                    'link' => URL::action('JobController@show', array($job->id, $job->getSlug())),
+                    'pubDate' => DateTime::createFromFormat( RFC_822, $job->updated_on )
                 )
             );
         }
