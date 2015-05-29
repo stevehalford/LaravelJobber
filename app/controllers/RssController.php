@@ -52,7 +52,7 @@ class RssController extends BaseController
 
             $feed->item(
                 array(
-                    'guid' => $job->id,
+                    'guid' => URL::action('JobController@show', array($job->id)),
                     'title' => '[' . $job->type->name . '] ' . $job->title . ' at ' . $job->company . ' (' . $location . ')',
                     'description' => Markdown::parse($job->description),
                     'link' => URL::action('JobController@show', array($job->id, $job->getSlug())),
