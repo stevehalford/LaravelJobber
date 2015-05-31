@@ -6,6 +6,13 @@ class Job extends Ardent
 {
     protected $table = 'jobs';
 
+    public function getDates() {
+        return [
+            'created_on',
+            'updated_at'
+        ];
+    }
+
     public static $rules = array(
         'title' => 'required',
         'description' => 'required',

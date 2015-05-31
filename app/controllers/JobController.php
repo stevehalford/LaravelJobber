@@ -1,5 +1,7 @@
 <?php
 
+use Carbon\Carbon;
+
 class JobController extends BaseController
 {
     public function __construct(JobRepository $jobs)
@@ -15,10 +17,17 @@ class JobController extends BaseController
             App::abort(404);
         }
 
+        $isOldJob = false;
+        $twoMonthsAgo = Carbon::now()->subMonths( 2 );
+        if ( $job->created_on->lt( $twoMonthsAgo ) ) {
+            $isOldJob = true;
+        }
+
         return View::make(
             'job.show',
             array(
-                'job' => $job
+                'job' => $job,
+                'isOldJob' => $isOldJob
             )
         );
     }

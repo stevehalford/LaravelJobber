@@ -5,6 +5,7 @@
 @section('keywords', $job->category->keywords)
 
 @section('body')
+
     <div id="job-details">
         <div id="applied-to-job">
             @if ($job->apply_count)
@@ -40,6 +41,12 @@
             {{ Markdown::parse($job->description) }}
         </div>
         <br>
+
+        @if ( $isOldJob )
+            <div class="alert alert-error alert-block">
+                Warning! This job was posted more than two months ago. Please consider this when applying.
+            </div>
+        @endif
 
         @if ($job->apply_online)
             <div id="apply_online_now"><a href="#" onclick="$('#apply-online').toggle(); window.location.href = '#apply'; return false;">» Apply now</a></div>
