@@ -44,7 +44,7 @@
 
         @if ( $isOldJob )
             <div class="alert alert-error alert-block">
-                Warning! This job was posted more than two months ago. Please consider this when applying.
+                Warning! This job was posted {{ $job->created_on->diffForHumans() }}. Please consider this when applying.
             </div>
         @endif
 
