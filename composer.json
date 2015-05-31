@@ -8,7 +8,8 @@
 		"thujohn/rss": "dev-master",
 		"netcarver/textile": "3.5.*",
 		"maxhoffmann/parsedown-laravel": "dev-master",
-		"greggilbert/recaptcha": "dev-master"
+		"greggilbert/recaptcha": "dev-master",
+		"leafo/lessphp": "^0.4.0@dev"
 	},
 	"autoload": {
 		"classmap": [

@@ -17,7 +17,7 @@
 </div>
 <br />
 
-<div class="posted-pending">
+<div class="post-status pending">
     Your job was posted, but since this is the first time you post with this e-mail address, we need to manually verify it.<br>Thank you for your patience, as the ad should be published ASAP. We'll send you an e-mail when that happens. <br><br>From now on, every ad you post with this e-mail address will instantly be published.<br>
 </div>
 @stop

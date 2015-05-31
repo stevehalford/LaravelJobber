@@ -16,7 +16,7 @@
     <link rel="shortcut icon" href="http://www.designjobswales.co.uk/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon-precomposed" href="http://www.designjobswales.co.uk/apple-touch-icon.png">
     <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://www.designjobswales.co.uk/rss/all/">
-    <link rel="stylesheet" href="{{ Config::get('app.url') }}/css/screen.css" type="text/css">
+    <link rel="stylesheet" href="{{ Config::get('app.url') }}/css/compiled.css" type="text/css">
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="{{ Config::get('app.url') }}/scripts/main.js" type="text/javascript"></script>
@@ -85,7 +85,7 @@
 
     <div class="footer">
         <div id="footer-contents">
-            <div id="footer-col1">
+            <div class="left" id="footer-col1">
                 Use:<br>
                                                                                         <a href="{{ Config::get('app.url') }}/post/" title="Post a new job for free!">Post a new job</a><br>
                                                                                                 <a href="{{ Config::get('app.url') }}/widgets/" title="Would you like to display our latest jobs on your site?">Site widget</a><br>
@@ -93,19 +93,19 @@
                                                                                                 <a href="{{ Config::get('app.url') }}/companies/" title="An overview of all available companies.">Companies</a><br>
                                                                                                 <a href="{{ Config::get('app.url') }}/sitemap/" title="Sitemap">Sitemap</a><br>
                                                                         </div>
-            <div id="footer-col2">
+            <div class="left" id="footer-col2">
                 Find out more:<br>
                                                                                         <a href="{{ Config::get('app.url') }}/about/" title="More information about us.">About Us</a><br>
                                                                                                 <a href="{{ Config::get('app.url') }}/contact/" title="Don't hesitate to contact us!">Contact</a><br>
                                                                                                 <a href="http://www.twitter.com/designjobswales/" title="Follow us on twitter">Follow Us on Twitter</a><br>
                                                                         </div>
-            <div id="footer-col3">
+            <div class="left" id="footer-col3">
                 Links:<br>
                                                                                         <a href="http://blog.designjobswales.co.uk/" title="The Blog of Design Jobs Wales">Design Jobs Wales Blog</a><br>
                                                                                                 <a href="http://www.creative-wales.com/" title="A blog about Art, Design and Media in Wales. We aim to provide the latest information about the sector, artists, designers and other stuff happening in Welsh Art, Design and Media.">Creative Wales</a><br>
                                                                                                 <a href="http://www.creativeboom.co.uk//" title="A regional online magazine about the creative industries in Cardiff and the rest of Wales">Creative Boom</a><br>
                                                                         </div>
-            <div id="footer-copyright">
+            <div class="left" id="footer-copyright">
                 Designed and built by <a href="http://www.inknpixel.co.uk">inknpixel.co.uk</a>
                 <br>Powered by <a href="http://www.jobberbase.com">jobberBase</a>
             </div>

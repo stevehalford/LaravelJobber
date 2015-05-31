@@ -1,0 +1,54 @@
+.right {
+    float:right;
+    display:inline;
+}
+
+.left {
+    float:left;
+    display:inline;
+}
+
+.clear {
+    clear:both;
+}
+
+.big {
+    width:61px;
+    height:61px;
+    line-height:61px;
+    font-size:20px;
+}
+
+.small {
+    width:45px;
+    height:45px;
+    font-weight:700;
+    font-size:16px;
+    line-height:45px;
+}
+
+// Pagination
+
+.pagination {
+    margin: 20px 0 0;
+    list-style: none;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    
+    li {
+        float: left;
+        padding: 2px 4px;
+        margin-right: 3px;
+    }
+
+    &.active {
+        font-weight:700;
+        border:1px solid #ccc;
+        padding:1px 2px;
+    }
+
+    &.disabled {
+        opacity: 0.5;
+    }
+}

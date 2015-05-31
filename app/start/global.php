@@ -81,3 +81,11 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+
+
+/**
+ * Compile less
+ */
+$less = new lessc;
+$less->setFormatter("compressed");
+$less->checkedCompile(__DIR__.'/../../public/less/style.less', __DIR__.'/../../public/css/compiled.css');
