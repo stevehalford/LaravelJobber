@@ -1,8 +1,6 @@
 @extends('layouts.base')
 
-@section('title', $job->title . ' at ' . $job->company . ' - Design Jobs Wales')
-@section('description', $job->category->description)
-@section('keywords', $job->category->keywords)
+@section('title', 'Error - Design Jobs Wales')
 
 @section('body')
     <h2>Error</h2>
