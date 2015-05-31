@@ -88,4 +88,4 @@ require app_path().'/filters.php';
  */
 $less = new lessc;
 $less->setFormatter("compressed");
-$less->checkedCompile(__DIR__.'/../../public/less/style.less', __DIR__.'/../../public/css/compiled.css');
+$less->checkedCompile(__DIR__.'/../../public/less/index.less', __DIR__.'/../../public/css/compiled.css');
