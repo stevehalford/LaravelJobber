@@ -44,7 +44,7 @@
         <div id="box">
             <h2 id="tagline">Design and development jobs in Wales and just over the border</h2>
             <div id="search">
-                {{ Form::open(array('action' => 'SearchController@search')) }}
+                {{ Form::open(array('action' => 'SearchController@search', 'method' => 'GET')) }}
                 <form id="search_form" method="post" action="http://www.designjobswales.co.uk/search/">
                     <fieldset>
                         <div>

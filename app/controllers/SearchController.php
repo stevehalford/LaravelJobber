@@ -19,12 +19,14 @@ class SearchController extends BaseController
                   ->where('company', 'LIKE', '%'. $word .'%', 'OR');
         }
 
+        $query->orderBy( 'created_on', 'desc' );
+
         $results = $query->paginate(20);
 
         return View::make(
             'search.show',
             array(
-                'results' => $results,
+                'results' => $results->appends( Input::except( 'page' ) ),
                 'keywords' => implode(', ', $keywords)
             )
         );

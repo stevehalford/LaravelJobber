@@ -36,7 +36,7 @@ Route::get('/confirm/{id}', 'JobController@confirmation');
 Route::get('/activate/{id}/{auth}', 'JobController@activate');
 Route::get('/deactivate/{id}/{auth}', 'JobController@deactivate');
 
-Route::post('/search', 'SearchController@search');
+Route::get('/search', 'SearchController@search');
 
 Route::get('/rss', 'RssController@index');
 Route::get('/rss/{name}', 'RssController@feed');
