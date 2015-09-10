@@ -41,34 +41,6 @@ Route::get('/search', 'SearchController@search');
 Route::get('/rss', 'RssController@index');
 Route::get('/rss/{name}', 'RssController@feed');
 
-Route::get('/jobs', function() {
-    $jobs = Job::live()->orderBy('created_on', 'desc')->take(20)->get();
-
-    $jobsFormatted = array();
-    foreach ($jobs as $job) {
-        $jobArray = array(
-            'id' => $job->id,
-            'title' => $job->title,
-            'description' => $job->description,
-            'company' => $job->company,
-            'created_on' => $job->created_on,
-            'url' => 'http://www.designjobswales.co.uk/job/'.$job->id.'/'
-        );
-
-        if ($job->city) {
-            $jobArray['city'] = $job->city->name;
-        } else {
-            if ($job->outside_location) {
-                $jobArray['city'] = $job->outside_location;
-            } else {
-                $jobArray['city'] = 'n/a';
-            }
-        }
-
-        $jobsFormatted[] = $jobArray;
-    }
-
-    return Response::json($jobsFormatted, 200);
-});
+Route::get('/jobs', 'ApiController@jobs');
 
 Route::get('/{name}', 'PageController@show');
