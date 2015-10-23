@@ -123,9 +123,13 @@ class JobController extends BaseController
         );
     }
 
-    public function verify($id)
+    public function verify($id, $auth)
     {
         $job = Job::find($id);
+
+        if (!$job || $job->auth != $auth) {
+            App::abort(404);
+        }
 
         return View::make(
             'job.verify',
@@ -166,15 +170,19 @@ class JobController extends BaseController
         $job->auth = md5($job->title . uniqid() . time());
 
         if ($job->save()) {
-            return Redirect::action('JobController@verify', $job->id);
+            return Redirect::action('JobController@verify', [ $job->id, $job->auth ]);
         }
 
         return Redirect::back()->withInput()->withErrors($job->errors());
     }
 
-    public function confirm($id)
+    public function confirm($id, $auth)
     {
         $job = Job::find($id);
+
+        if (!$job || $job->auth != $auth) {
+            App::abort(404);
+        }
 
         $job->is_temp = 0;
 
@@ -232,9 +240,13 @@ class JobController extends BaseController
         );
     }
 
-    public function update($id)
+    public function update($id, $auth)
     {
         $job = Job::find($id);
+
+        if (!$job || $job->auth != $auth) {
+            App::abort(404);
+        }
 
         $job->category_id = Input::get('category_id');
         $job->title = Input::get('title');
@@ -256,7 +268,7 @@ class JobController extends BaseController
         $job->is_temp = 1;
 
         if ($job->save()) {
-            return Redirect::action('JobController@verify', $job->id);
+            return Redirect::action('JobController@verify', [ $job->id, $job->auth ]);
         }
 
         return Redirect::back()->with('error', 'Sorry, we could not save the job for some reason');

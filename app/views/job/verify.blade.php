@@ -41,7 +41,7 @@
     </div>
     <br>
 
-    {{ Form::open(array('action' => array('JobController@confirm', $job->id), 'id' => 'publish_form')) }}
+    {{ Form::open(array('action' => array('JobController@confirm', [ $job->id, $job->auth ]), 'id' => 'publish_form')) }}
         {{ Form::token() }}
         <fieldset>
             <p>NB: If you are a <strong>recruitment agent</strong> posting a job on behalf of a client, we will ask for a small fee of <strong>&pound;20</strong> via paypal before your job ad will be approved. This will help keep the site running for the benefit of local developers and designers. Thank you.</p>

@@ -19,7 +19,7 @@
     </div>
     <br />
 
-    {{ Form::model($job, array('url' => URL::action('JobController@update', $job->id), 'method' => 'put', 'id' => 'publish_form')) }}
+    {{ Form::model($job, array('url' => URL::action('JobController@update', [ $job->id, $job->auth ]), 'method' => 'put', 'id' => 'publish_form')) }}
         {{ Form::token() }}
         <fieldset>
             <legend>Job details</legend>
