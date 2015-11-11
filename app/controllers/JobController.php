@@ -17,6 +17,9 @@ class JobController extends BaseController
             App::abort(404);
         }
 
+        $job->views_count = $job->views_count + 1;
+        $job->save();
+
         $isOldJob = false;
         $twoMonthsAgo = Carbon::now()->subMonths( 2 );
         if ( $job->created_on->lt( $twoMonthsAgo ) ) {
