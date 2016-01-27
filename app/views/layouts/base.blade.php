@@ -7,8 +7,8 @@
 
     <!--facebook og -->
     <meta property="fb:admins" content="789248635">
-    <meta property="og:title" content="Design Jobs Wales">
-    <meta property="og:description" content="Design Jobs Wales makes it easy for agencies and recruiters to fill design jobs in Wales and is a must for design related professionals in Wales.">
+    <meta property="og:title" content="@yield('title', 'Design Jobs Wales')">
+    <meta property="og:description" content="@yield('description', 'Design Jobs Wales makes it easy for agencies and recruiters to fill design jobs in Wales and is a must for design related professionals in Wales.')">
     <meta property="og:type" content="article">
     <meta property="og:url" content="">
     <meta property="og:image" content="http://www.designjobswales.co.uk/_templates/djw/img/djw-logo.png">
