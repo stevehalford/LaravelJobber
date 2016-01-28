@@ -4,7 +4,6 @@
 
 @section('body')
 
-<div id="content">
     <div class="steps">
         <div id="step-1" class="step-active">
             Step 1: Write
@@ -100,11 +99,10 @@
         <fieldset>
             <legend>Anti-spam</legend>
             {{ Form::captcha() }}
-            {{ $errors->first('recaptcha_response_field', '<span class="help-inline">:message</span>') }}
+            {{ $errors->first('recaptchaResponse', '<span class="help-inline">:message</span>') }}
         </fieldset>
         <fieldset>
             <input type="submit" name="submit" id="submit" value="Step 2. Verify ad" />
         </fieldset>
     {{ Form::close() }}
-</div>
 @stop

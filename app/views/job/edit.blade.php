@@ -4,7 +4,6 @@
 
 @section('body')
 
-<div id="content">
     <div class="steps">
         <div id="step-1" class="step-active">
             Step 1: Write
@@ -102,5 +101,4 @@
             <input type="submit" name="submit" id="submit" value="Step 2. Verify ad" />
         </fieldset>
     {{ Form::close() }}
-</div>
 @stop

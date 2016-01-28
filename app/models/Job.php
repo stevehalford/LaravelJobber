@@ -1,6 +1,7 @@
 <?php
 
 use \LaravelBook\Ardent\Ardent;
+use Carbon\Carbon;
 
 class Job extends Ardent
 {

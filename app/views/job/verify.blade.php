@@ -3,7 +3,6 @@
 @section('title', 'Post a Job - Design Jobs Wales')
 
 @section('body')
-<div id="content">
     <div class="steps">
         <div id="step-1">
             Step 1: Write
@@ -55,5 +54,4 @@
         </fieldset>
     {{ Form::close() }}
 
-</div>
 @stop

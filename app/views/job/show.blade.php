@@ -20,11 +20,10 @@
             @endif
         </div>
         <h2>
-            <img src="http://www.designjobswales.co.uk/_templates/djw/img/icon-{{ $job->type->var_name }}.png" alt="{{ $job->type->name }}">
             {{ $job->title }}
         </h2>
         <p>
-            <span class="fading">at</span>
+            <img src="http://www.designjobswales.co.uk/_templates/djw/img/icon-{{ $job->type->var_name }}.png" alt="{{ $job->type->name }}">
             <a href="http://{{ $job->url }}">{{ $job->company }}</a>
             @if ($job->city)
                 <span class="fading">in</span> <strong>{{ $job->city->name }}</strong>

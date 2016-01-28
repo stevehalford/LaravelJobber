@@ -1,30 +1,37 @@
 .row {
     border-bottom:1px solid #eee;
-    width:740px;
-    height:20px;
-    padding:8px;
+    min-height:20px;
     
-    &:nth-child(odd) {
-        background-color:#e6e1dc;
-        background-color: rgba(247,248,252,1);
+    overflow: hidden;
+    text-decoration: none;
+    
+    &:nth-child(even) {
+        background-color: rgba(0,0,64,0.035);
     }
 
-    .row-info {
-        float:left;
-        height:20px;
-        overflow:hidden;
-        width:650px;
-        font-weight:700;
-    }
+    a {
+        padding:10px;
+        display: block;
 
-    .time-posted {
-        font-size:11px;
-        color:#888;
-        float:right;
-        padding-right:5px;
-        
-        img {
-            vertical-align: middle;
+        &:hover {
+            text-decoration: none;
+            background-color: rgba(0,0,64,0.07);
         }
+    }
+
+    h2 {
+        font-weight: normal;
+        font-size: 18px;
+        margin: 0;
+    }
+
+    h3 {
+        font-weight: normal;
+        font-size: 12px;
+        margin: 0;
+    }
+    p {
+        font-weight: normal;
+        margin: 0 !important;
     }
 }

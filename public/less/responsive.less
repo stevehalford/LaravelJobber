@@ -1,0 +1,85 @@
+/*Style 'show menu' label button and hide it by default*/
+.show-menu {
+    text-decoration: none;
+    color: #fff;
+    background: #ffc948;
+    text-align: center;
+    padding: 10px 0;
+    display: none;
+}
+
+/*Hide checkbox*/
+input#show-menu[type=checkbox] {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    #content {
+        width: 100%;
+    }
+    #sidebar {
+        display: none;
+    }
+    #box {
+        display: none;
+    }
+
+    div#header div#categs-nav {
+        float: none;
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    div#search {
+        display: none;
+    }
+
+}
+
+@media (max-width: 400px) {
+    div#header {
+        height: auto;
+    }
+    div.footer {
+        #footer-contents {
+            .left {
+                display: block;
+                width: 100%;
+                margin: 0 0 20px;
+            }
+            #footer-col2,
+            #footer-col3 {
+                width: 100%;
+                margin-left: 0;
+            }
+        }
+    }
+    #comms {
+        display: none;
+    }
+    div#header h1#logo {
+        position: static;
+        margin: 20px auto 0;
+    }
+
+    div#header div#categs-nav {
+        ul {
+            li {
+                float:none;
+                margin-right:0;
+            }
+        }
+    }
+
+    input#show-menu[type=checkbox] ~ ul {
+        display: none;
+    }
+    input#show-menu[type=checkbox]:checked ~ ul {
+        display: block;
+    }
+
+    .show-menu {
+        display:block;
+    }
+    
+}

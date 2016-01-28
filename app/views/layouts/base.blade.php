@@ -31,30 +31,27 @@
             </div>
 
             <div id="categs-nav">
+                <label for="show-menu" class="show-menu">Show Menu</label>
+                <input type="checkbox" id="show-menu" role="button">
                 <ul>
                     @foreach($categories as $category)
                         <li id="{{ $category->var_name }}"><a href="{{ Config::get('app.url') . '/jobs/' . $category->var_name }}" title="{{ $category->title }}"><span>{{ $category->name }}</span></a></li>
                     @endforeach
                     <li><a href="http://blog.designjobswales.co.uk">Blog</a></li>
                 </ul>
+                <div id="search">
+                    {{ Form::open(array('action' => 'SearchController@search', 'method' => 'GET')) }}
+                    <form id="search_form" method="post" action="http://www.designjobswales.co.uk/search/">
+                        <fieldset>
+                            <div>
+                                {{ Form::text('keywords', null, array('placeholder' => 'Search Jobs', 'class' => 'text', 'max-length' => '30'))}}
+                            </div>
+                        </fieldset>
+                    {{ Form::close() }}
+                </div><!-- #search -->
             </div><!-- #categs-nav -->
 
         </div><!-- #header -->
-
-        <div id="box">
-            <h2 id="tagline">Design and development jobs in Wales and just over the border</h2>
-            <div id="search">
-                {{ Form::open(array('action' => 'SearchController@search', 'method' => 'GET')) }}
-                <form id="search_form" method="post" action="http://www.designjobswales.co.uk/search/">
-                    <fieldset>
-                        <div>
-                            {{ Form::text('keywords', null, array('placeholder' => 'Search Jobs', 'class' => 'text', 'max-length' => '30'))}}
-                            <input type="submit" name="submit" value="Search" class="submit">
-                        </div>
-                    </fieldset>
-                {{ Form::close() }}
-            </div><!-- #search -->
-        </div><!-- #box -->
 
         <div class="clear"></div>
 
@@ -71,9 +68,6 @@
 
             @include('partials/influads')
 
-            <a href="https://itunes.apple.com/us/app/design-jobs-wales/id695154003?ls=1&amp;mt=8" class="appad">
-                <img src="http://www.designjobswales.co.uk/_templates/djw/img/app_ad.png" alt="Get the DJW App">
-            </a>
         </div><!-- #sidebar -->
 
         <div id="content">
