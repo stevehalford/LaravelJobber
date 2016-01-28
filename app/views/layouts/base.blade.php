@@ -102,8 +102,7 @@
                                                                                                 <a href="http://www.creativeboom.co.uk//" title="A regional online magazine about the creative industries in Cardiff and the rest of Wales">Creative Boom</a><br>
                                                                         </div>
             <div class="left" id="footer-copyright">
-                Designed and built by <a href="http://www.inknpixel.co.uk">inknpixel.co.uk</a>
-                <br>Powered by <a href="http://www.jobberbase.com">jobberBase</a>
+                Built by <a href="http://www.stevehalford.co.uk">me</a>
             </div>
             <div class="clear"></div>
         </div><!-- #footer-contents -->
