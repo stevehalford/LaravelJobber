@@ -28,7 +28,6 @@
             <h1 id="logo"><a href="{{ Config::get('app.url') }}" title="Design Jobs Wales">Design Jobs Wales</a></h1>
             <div id="comms">
                 <a href="{{ Config::get('app.url') }}/rss/all/" title="Subscribe to the Jobs RSS feed" id="rss">Jobs RSS</a>
-                <a href="http://blog.designjobswales.co.uk/feed/" title="Subscribe to the Blog RSS feed" id="rss">Blog RSS</a>
                 <a href="http://www.twitter.com/designjobswales" id="twitter">Follow Us</a>
             </div>
 
@@ -39,7 +38,6 @@
                     @foreach($categories as $category)
                         <li id="{{ $category->var_name }}"><a href="{{ Config::get('app.url') . '/jobs/' . $category->var_name }}" title="{{ $category->title }}"><span>{{ $category->name }}</span></a></li>
                     @endforeach
-                    <li><a href="http://blog.designjobswales.co.uk">Blog</a></li>
                 </ul>
                 <div id="search">
                     {{ Form::open(array('action' => 'SearchController@search', 'method' => 'GET')) }}
@@ -94,12 +92,6 @@
                                                                                         <a href="{{ Config::get('app.url') }}/about/" title="More information about us.">About Us</a><br>
                                                                                                 <a href="{{ Config::get('app.url') }}/contact/" title="Don't hesitate to contact us!">Contact</a><br>
                                                                                                 <a href="http://www.twitter.com/designjobswales/" title="Follow us on twitter">Follow Us on Twitter</a><br>
-                                                                        </div>
-            <div class="left" id="footer-col3">
-                Links:<br>
-                                                                                        <a href="http://blog.designjobswales.co.uk/" title="The Blog of Design Jobs Wales">Design Jobs Wales Blog</a><br>
-                                                                                                <a href="http://www.creative-wales.com/" title="A blog about Art, Design and Media in Wales. We aim to provide the latest information about the sector, artists, designers and other stuff happening in Welsh Art, Design and Media.">Creative Wales</a><br>
-                                                                                                <a href="http://www.creativeboom.co.uk//" title="A regional online magazine about the creative industries in Cardiff and the rest of Wales">Creative Boom</a><br>
                                                                         </div>
             <div class="left" id="footer-copyright">
                 Built by <a href="http://www.stevehalford.co.uk">me</a>
