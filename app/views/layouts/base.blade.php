@@ -15,6 +15,7 @@
 
     <meta name="viewport" content="width=device-width">
 
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link rel="shortcut icon" href="http://www.designjobswales.co.uk/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon-precomposed" href="http://www.designjobswales.co.uk/apple-touch-icon.png">
     <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://www.designjobswales.co.uk/rss/all/">
@@ -24,11 +25,11 @@
     <script src="{{ Config::get('app.url') }}/scripts/main.js" type="text/javascript"></script>
 <body>
     <div id="container">
-                <div id="header">
+        <div id="header">
             <h1 id="logo"><a href="{{ Config::get('app.url') }}" title="Design Jobs Wales">Design Jobs Wales</a></h1>
             <div id="comms">
                 <a href="{{ Config::get('app.url') }}/rss/all/" title="Subscribe to the Jobs RSS feed" id="rss">Jobs RSS</a>
-                <a href="http://www.twitter.com/designjobswales" id="twitter">Follow Us</a>
+                <a href="http://www.twitter.com/designjobswales" id="twitter">Follow</a>
             </div>
 
             <div id="categs-nav">
@@ -41,12 +42,7 @@
                 </ul>
                 <div id="search">
                     {{ Form::open(array('action' => 'SearchController@search', 'method' => 'GET')) }}
-                    <form id="search_form" method="post" action="http://www.designjobswales.co.uk/search/">
-                        <fieldset>
-                            <div>
-                                {{ Form::text('keywords', null, array('placeholder' => 'Search Jobs', 'class' => 'text', 'max-length' => '30'))}}
-                            </div>
-                        </fieldset>
+                        {{ Form::text('keywords', null, array('placeholder' => 'Search Jobs', 'class' => 'text', 'max-length' => '30'))}}
                     {{ Form::close() }}
                 </div><!-- #search -->
             </div><!-- #categs-nav -->
@@ -56,15 +52,7 @@
         <div class="clear"></div>
 
         <div id="sidebar">
-            <div class="sidebar_block">
-                <div class="addJob">
-                    <a href="{{ Config::get('app.url') }}/post/" title="" class="add">Post a job</a>
-                </div>
-                <div class="text">
-                    <p>100% Free (as in beer)</p>
-                    <p class="smallprint">Just £20 for recruitment agencies</p>
-                </div>
-            </div>
+            <a href="{{ Config::get('app.url') }}/post/" title="" class="add btn">Post a job</a>
 
             @include('partials/influads')
 
@@ -81,18 +69,15 @@
         <div id="footer-contents">
             <div class="left" id="footer-col1">
                 Use:<br>
-                                                                                        <a href="{{ Config::get('app.url') }}/post/" title="Post a new job for free!">Post a new job</a><br>
-                                                                                                <a href="{{ Config::get('app.url') }}/widgets/" title="Would you like to display our latest jobs on your site?">Site widget</a><br>
-                                                                                                <a href="{{ Config::get('app.url') }}/rss/" title="An overview of all our available RSS Feeds.">RSS Feeds</a><br>
-                                                                                                <a href="{{ Config::get('app.url') }}/companies/" title="An overview of all available companies.">Companies</a><br>
-                                                                                                <a href="{{ Config::get('app.url') }}/sitemap/" title="Sitemap">Sitemap</a><br>
-                                                                        </div>
+                <a href="{{ Config::get('app.url') }}/post/" title="Post a new job for free!">Post a new job</a><br>
+                <a href="{{ Config::get('app.url') }}/rss/" title="An overview of all our available RSS Feeds.">RSS Feeds</a><br>
+            </div>
             <div class="left" id="footer-col2">
                 Find out more:<br>
-                                                                                        <a href="{{ Config::get('app.url') }}/about/" title="More information about us.">About Us</a><br>
-                                                                                                <a href="{{ Config::get('app.url') }}/contact/" title="Don't hesitate to contact us!">Contact</a><br>
-                                                                                                <a href="http://www.twitter.com/designjobswales/" title="Follow us on twitter">Follow Us on Twitter</a><br>
-                                                                        </div>
+                <a href="{{ Config::get('app.url') }}/about/" title="More information about us.">About</a><br>
+                <a href="{{ Config::get('app.url') }}/contact/" title="Don't hesitate to contact us!">Contact</a><br>
+                <a href="http://www.twitter.com/designjobswales/" title="Follow us on twitter">Follow on Twitter</a><br>
+            </div>
             <div class="left" id="footer-copyright">
                 Built by <a href="http://www.stevehalford.co.uk">me</a>
             </div>

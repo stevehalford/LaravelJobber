@@ -1,3 +1,4 @@
+@import "variables.less";
 @import "reset.less";
 @import "layout.less";
 @import "sidebar.less";
@@ -10,12 +11,34 @@
 @import "responsive.less";
 
 body {
-    background:#fff;
+    background: @lightColor;
     color:#444;
     font-size: 62.5%;
     font-family:Helvetica, Arial, sans-serif;
     text-align:center;
     line-height:1.5;
+}
+
+h1, h2, h3, h4, h5, h6,
+div#categs-nav a {
+    font-family: 'Open Sans', sans-serif;
+}
+
+a.btn.add,
+input[type=submit] {
+    font-family: 'Open Sans', sans-serif;
+    display: block;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 1.2em !important;
+    color: #fff;
+    background-color: @primaryColor;
+    
+    &:hover {
+        background-color: @lightColor;
+        color: @primaryColor;
+        text-decoration: none;
+    }
 }
 
 a {

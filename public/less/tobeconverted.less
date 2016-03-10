@@ -16,8 +16,7 @@ span.la {
 }
 
 #publish_form fieldset,#promo_form fieldset {
-    background-color:#f5f5f5;
-    border:1px solid #ccc;
+    background-color: @lightColor;
     margin:0 0 5px;
     padding:10px;
 }
@@ -28,11 +27,9 @@ span.la {
     font-size:12px;
 }
 
-#publish_form input,#publish_form textarea,#frm-send-to-friend input,#frm-send-edit-link input,#apply-online input,#apply-online textarea,#promo_form input {
-    border:1px solid #ccc;
+#publish_form input[type=text],#publish_form input[type=email],#publish_form textarea,#frm-send-to-friend input[type=text],#frm-send-edit-link input[type=text],#apply-online input[type=text],#apply-online textarea,#promo_form input[type=text] {
     font-size:12px;
-    font-family:Helvetica,Arial,sans-serif;
-    padding:5px;
+    padding: 5px;
 }
 
 #publish_form input:focus,#search input:hover,#publish_form textarea:focus,#search textarea:hover,#frm-send-to-friend input:focus,#frm-send-to-friend input:hover,#frm-send-edit-link input:focus,#frm-send-edit-link input:hover,#apply-online input:focus,#apply-online input:hover,#apply-online textarea:focus,#apply-online textarea:hover,#promo_form input:focus,#promo_form input:hover {
@@ -40,18 +37,10 @@ span.la {
 }
 
 #publish_form input#submit,#send-to-friend input#submit,#frm-send-edit-link input#submit,#apply-online input#submit,#promo_form input#submit {
-    background-color:#ffc948;
-    font-weight:400;
-    font-size:14px;
-    height:24px;
-    line-height:24px;
-    color:#fff;
     text-decoration:none;
-    text-shadow:0 -1px 0 #dc9f27;
     border:0;
     cursor:hand;
     margin:0;
-    padding:2px 10px 1px;
 }
 
 #publish_form label.small {
@@ -130,7 +119,7 @@ h3.page-heading a:hover,div.page-heading a:hover {
 }
 
 #recaptcha_table {
-    border-color:#f5f5f5!important;
+    border-color: @lightColor!important;
 }
 
 #recaptcha_response_field {
