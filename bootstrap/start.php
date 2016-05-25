@@ -24,11 +24,25 @@ $app = new Illuminate\Foundation\Application;
 |
 */
 
-$env = $app->detectEnvironment(array(
-    'local' => array('djw', 'steves-mbp', 'vagrant'),
-    'staging' => array('api.designjobswales.co.uk'),
-    'production' => array('www.designjobswales.co.uk', 'ps122405'),
-));
+$env = $app->detectEnvironment(function(){
+    $hosts = array(
+        'djw' => 'local',
+        'api.designjobswales.co.uk' => 'staging',
+        'www.designjobswales.co.uk' => 'production',
+        'designjobswales.co.uk' => 'production',
+        'www.devjobswales.co.uk' => 'devjobs',
+        'devjobswales.co.uk' => 'devjobs'
+    );
+
+    if ( isset( $_SERVER['SERVER_NAME'] ) ) {
+        if ( isset( $hosts[$_SERVER['SERVER_NAME']] ) ) {
+            return $hosts[$_SERVER['SERVER_NAME']];
+        }
+    }
+
+    return 'local';
+
+});
 
 /*
 |--------------------------------------------------------------------------
