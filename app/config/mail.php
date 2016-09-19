@@ -2,7 +2,7 @@
 
 return array(
 
-	'admin_email' => 'steve@inknpixel.co.uk',
+	'admin_email' => 'steve@designjobswales.co.uk',
 
 	/*
 	|--------------------------------------------------------------------------
