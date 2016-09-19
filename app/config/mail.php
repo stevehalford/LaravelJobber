@@ -82,7 +82,7 @@ return array(
 	|
 	*/
 
-	'username' => null,
+	'username' => 'postmaster@mg.designjobswales.co.uk',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -95,7 +95,7 @@ return array(
 	|
 	*/
 
-	'password' => null,
+	'password' => 'bfadcc60aa3b3f04d7e82db0e224b347',
 
 	/*
 	|--------------------------------------------------------------------------
