@@ -42,7 +42,7 @@ class JobController extends BaseController
         if (Input::hasFile('apply_cv')) {
             $file = Input::file('apply_cv');
             $filename = $file->getClientOriginalName() . '_' . time() . '.' . $file->getClientOriginalExtension();
-            $destinationPath = public_path().'/storage/files/';
+            $destinationPath = base_path().'/storage/files/';
             if ($file->move($destinationPath, $filename)) {
                 $attachment = $destinationPath . $filename;
             } else {
