@@ -42,7 +42,7 @@ class JobController extends BaseController
         if (Input::hasFile('apply_cv')) {
             $file = Input::file('apply_cv');
             $filename = $file->getClientOriginalName() . '_' . time() . '.' . $file->getClientOriginalExtension();
-            $destinationPath = base_path().'/storage/files/';
+            $destinationPath = storage_path().'/uploads/';
             if ($file->move($destinationPath, $filename)) {
                 $attachment = $destinationPath . $filename;
             } else {
@@ -55,6 +55,7 @@ class JobController extends BaseController
         $application = new Application;
         $application->ip = Request::getClientIp();
         $application->job_id = $job->id;
+        $application->recaptchaResponse = Input::get('g-recaptcha-response');
 
         $data = array(
             'apply_email' => Input::get('apply_email'),
@@ -154,7 +155,7 @@ class JobController extends BaseController
         $job->type_id = (Input::has('type_id')) ? Input::get('type_id') : 1;
         $job->outside_location = Input::get('location_outside_ro_where');
 
-        $job->recaptcha_response_field = Input::get('recaptcha_response_field');
+        $job->recaptcha_response_field = Input::get('g-recaptcha-response');
 
         if (Input::get('city_id')) {
             $job->city_id = Input::get('city_id');
@@ -169,7 +170,7 @@ class JobController extends BaseController
         $job->views_count = 0;
         $job->apply_count = 0;
 
-        $job->auth = md5($job->title . uniqid() . time());
+        $job->auth = md5($job->title . uniqid() . Config::get('app.key') . time());
 
         if ($job->save()) {
             return Redirect::action('JobController@verify', [ $job->id, $job->auth ]);
