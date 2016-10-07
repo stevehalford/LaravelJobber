@@ -19,12 +19,13 @@ class ApiController extends BaseController
 
         $jobsFormatted = array();
         foreach ($jobs as $job) {
+            $createdOnString = date( 'r', strtotime( $job->created_on ) );
             $jobArray = array(
                 'id' => $job->id,
                 'title' => $job->title,
                 'description' => $job->description,
                 'company' => $job->company,
-                'created_on' => $job->created_on,
+                'created_on' => $createdOnString,
                 'url' => 'http://www.designjobswales.co.uk/job/'.$job->id.'/'
             );
 
