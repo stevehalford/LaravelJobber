@@ -6,6 +6,8 @@ return array(
 
     'parseNotify' => false,
 
-    'url' => 'http://djw',
+    'logo' => 'djw-logo.png',
+
+    'url' => 'http://localhost:32804',
 
 );
