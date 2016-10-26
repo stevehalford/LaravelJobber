@@ -147,7 +147,7 @@ class JobController extends BaseController
 
         $job->category_id = Input::get('category_id');
         $job->title = Input::get('title');
-        $job->description = Input::get('description');
+        $job->description = $this->cleanupHtml( Input::get('description') );
         $job->company = Input::get('company');
         $job->url = Input::get('url');
         $job->poster_email = Input::get('poster_email');
@@ -402,5 +402,29 @@ class JobController extends BaseController
         } catch (Exception $e) {
             return false;
         }
+    }
+
+    protected function cleanupHtml( $html ) {
+
+        $doc = new \DOMDocument();
+
+        $doc->loadHTML( $html );
+
+        $this->removeElementsByTagName( 'script', $doc );
+        $this->removeElementsByTagName( 'style', $doc );
+        $this->removeElementsByTagName( 'link', $doc );
+
+        return $doc->saveHtml();
+
+    }
+
+    protected function removeElementsByTagName( $tagName, $doc ) {
+
+        $nodeList = $doc->getElementsByTagName( $tagName );
+        for ( $i = $nodeList->length; --$i >= 0; ) {
+            $node = $nodeList->item( $i );
+            $node->parentNode->removeChild( $node );
+        }
+
     }
 }
