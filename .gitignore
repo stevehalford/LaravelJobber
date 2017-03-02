@@ -13,3 +13,4 @@ composer.phar
 /public/css/compiled.css
 /app/config/packages/greggilbert/recaptcha/config.php
 /app/config/packages/greggilbert/recaptcha/local/config.php
+/storage
