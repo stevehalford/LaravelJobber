@@ -1,3 +1,6 @@
+From: {{ $apply_name }} ({{ $apply_email }})
+
+Message:
 {{ $apply_msg }} 
  
 -- 

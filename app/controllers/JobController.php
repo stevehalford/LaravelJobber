@@ -63,7 +63,8 @@ class JobController extends BaseController
             'company_email' => $job->poster_email,
             'company_name' => $job->company,
             'job_title' => $job->title,
-            'job_id' => $job->id
+            'job_id' => $job->id,
+            'attachment_filename' => isset( $filename ) ? $filename : ''
         );
 
         $application->data = json_encode($data);
@@ -79,7 +80,6 @@ class JobController extends BaseController
                     array('text' => 'emails.apply'),
                     $data,
                     function ($m) use ($data, $attachment) {
-                        $m->from($data['apply_email'], $data['apply_name']);
                         $m->to($data['company_email']);
                         $m->bcc($data['apply_email']);
                         if ($attachment) {
@@ -408,7 +408,7 @@ class JobController extends BaseController
 
         $doc = new \DOMDocument();
 
-        $doc->loadHTML( $html );
+        $doc->loadHTML( $html, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD );
 
         $this->removeElementsByTagName( 'script', $doc );
         $this->removeElementsByTagName( 'style', $doc );
