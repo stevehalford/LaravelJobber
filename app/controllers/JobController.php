@@ -406,25 +406,11 @@ class JobController extends BaseController
 
     protected function cleanupHtml( $html ) {
 
-        $doc = new \DOMDocument();
+        $html = preg_replace( '#<script(.*?)>(.*?)</script>#is', '', $html );
+        $html = preg_replace( '#<style(.*?)>(.*?)</style>#is', '', $html );
 
-        $doc->loadHTML( $html, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD );
-
-        $this->removeElementsByTagName( 'script', $doc );
-        $this->removeElementsByTagName( 'style', $doc );
-        $this->removeElementsByTagName( 'link', $doc );
-
-        return $doc->saveHtml();
+        return $html;
 
     }
 
-    protected function removeElementsByTagName( $tagName, $doc ) {
-
-        $nodeList = $doc->getElementsByTagName( $tagName );
-        for ( $i = $nodeList->length; --$i >= 0; ) {
-            $node = $nodeList->item( $i );
-            $node->parentNode->removeChild( $node );
-        }
-
-    }
 }
