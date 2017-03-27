@@ -45,6 +45,7 @@
                     <td colspan="2">
                         {{ Form::submit('submit', array('id' => 'submit')) }} or
                         <a href="#" id="cancel-apply">cancel</a>
+                        <input type="text" name="honeypot" class="honeypot" />
                     </td>
                 </tr>
             </tbody>

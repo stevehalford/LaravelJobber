@@ -104,5 +104,6 @@
         <fieldset>
             <input type="submit" name="submit" id="submit" value="Step 2. Verify ad" />
         </fieldset>
+        <input type="text" name="honeypot" class="honeypot" />
     {{ Form::close() }}
 @stop

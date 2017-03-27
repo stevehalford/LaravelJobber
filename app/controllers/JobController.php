@@ -37,6 +37,11 @@ class JobController extends BaseController
 
     public function apply($id)
     {
+
+        if ( Input::get('honeypot') !== '' ) {
+            return Redirect::back()->with('error', 'You don\'t appear to be human' );
+        }
+
         // First try to upload any file
         $attachment = null;
         if (Input::hasFile('apply_cv')) {
@@ -144,6 +149,10 @@ class JobController extends BaseController
     public function store()
     {
         $job = new Job;
+
+        if ( Input::get('honeypot') !== '' ) {
+            return Redirect::back()->with('error', 'You don\'t appear to be human' );
+        }
 
         $job->category_id = Input::get('category_id');
         $job->title = Input::get('title');
