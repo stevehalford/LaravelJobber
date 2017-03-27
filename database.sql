@@ -124,6 +124,7 @@ CREATE TABLE `jobs` (
   `poster_email` varchar(100) NOT NULL,
   `apply_online` tinyint(4) NOT NULL,
   `spotlight` tinyint(4) DEFAULT NULL,
+  `ip` varchar(100) DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `type_id` (`type_id`),
   KEY `category_id` (`category_id`)

@@ -153,6 +153,7 @@ class JobController extends BaseController
         $job->poster_email = Input::get('poster_email');
         $job->type_id = (Input::has('type_id')) ? Input::get('type_id') : 1;
         $job->outside_location = Input::get('location_outside_ro_where');
+        $job->ip = Request::getClientIp();
 
         $job->recaptcha_response_field = Input::get('recaptcha_response_field');
 
