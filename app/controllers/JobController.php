@@ -85,8 +85,8 @@ class JobController extends BaseController
                     array('text' => 'emails.apply'),
                     $data,
                     function ($m) use ($data, $attachment) {
-                        $m->to($data['company_email']);
-                        $m->bcc($data['apply_email']);
+                        $m->to(trim( $data['company_email'] ));
+                        $m->bcc(trim( $data['apply_email'] ));
                         if ($attachment) {
                             $m->attach($attachment);
                         }
@@ -363,7 +363,7 @@ class JobController extends BaseController
                 array('text' => 'emails.poster-firsttime'),
                 $data,
                 function ($m) use ($data) {
-                    $m->to($data['job']->poster_email);
+                    $m->to(trim( $data['job']->poster_email ));
                     $m->subject("Your ad on Design Jobs Wales");
                 }
             );
@@ -383,7 +383,7 @@ class JobController extends BaseController
                 array('text' => 'emails.poster-publish'),
                 $data,
                 function ($m) use ($data) {
-                    $m->to($data['job']->poster_email);
+                    $m->to(trim( $data['job']->poster_email ));
                     $m->subject("Your ad on Design Jobs Wales was published");
                 }
             );
