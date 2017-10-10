@@ -148,16 +148,17 @@ class JobController extends BaseController
 
     public function store()
     {
+
+        if (
+            Input::get( 'honeypot' ) !== '' ||
+            preg_match( '/^https?:\/\//', Input::get( 'title' ) ) ||
+            Input::get( 'company' ) == 'google' ||
+            preg_match( '/\.ru$/', Input::get( 'poster_email' ) )
+        ) {
+            return Redirect::back()->with( 'error', 'You don\'t appear to be human' );
+        }
+
         $job = new Job;
-
-        if ( Input::get('honeypot') !== '' ) {
-            return Redirect::back()->with('error', 'You don\'t appear to be human' );
-        }
-
-        if ( preg_match( '/https?:\/\//', Input::get('title') ) ) {
-            return Redirect::back()->with('error', 'You don\'t appear to be human' );
-        }
-
         $job->category_id = Input::get('category_id');
         $job->title = Input::get('title');
         $job->description = $this->cleanupHtml( Input::get('description') );
