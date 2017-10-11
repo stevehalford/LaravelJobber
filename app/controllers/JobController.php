@@ -201,6 +201,14 @@ class JobController extends BaseController
             App::abort(404);
         }
 
+        if (
+            preg_match( '/^https?:\/\//', $job->title ) ||
+            $job->company == 'google' ||
+            preg_match( '/\.ru$/', $job->poster_email )
+        ) {
+            return Redirect::back()->with( 'error', 'You don\'t appear to be human' );
+        }
+
         $job->is_temp = 0;
 
         if (!$job->isFirstTimePoster()) {
