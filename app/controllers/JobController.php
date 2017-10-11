@@ -38,7 +38,10 @@ class JobController extends BaseController
     public function apply($id)
     {
 
-        if ( Input::get('honeypot') !== '' ) {
+        if (
+            Input::get('honeypot') !== '' ||
+            preg_match( '/\.ru$/', Input::get( 'apply_email' ) )
+        ) {
             return Redirect::back()->with('error', 'You don\'t appear to be human' );
         }
 
