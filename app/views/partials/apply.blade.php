@@ -22,7 +22,6 @@
                     <td>
                         {{ Form::textarea('apply_msg', null, array('required' => 'required', 'class' => $errors->has('apply_msg') ? 'error' : '')) }}
                         {{ $errors->first('apply_msg', '<span class="help-inline">:message</span>') }}
-                        <div class="suggestion">You can use <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">markdown</a> to style your text.</div>
                     </td>
                 </tr>
                 <tr>
@@ -45,7 +44,7 @@
                     <td colspan="2">
                         {{ Form::submit('submit', array('id' => 'submit')) }} or
                         <a href="#" id="cancel-apply">cancel</a>
-                        <input type="text" name="honeypot" class="honeypot" />
+                        <input type="text" name="terms" class="terms" />
                     </td>
                 </tr>
             </tbody>

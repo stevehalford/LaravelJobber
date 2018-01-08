@@ -39,7 +39,7 @@ class JobController extends BaseController
     {
 
         if (
-            Input::get('honeypot') !== '' ||
+            Input::get('terms') !== '' ||
             preg_match( '/\.ru$/', Input::get( 'apply_email' ) )
         ) {
             return Redirect::back()->with('error', 'You don\'t appear to be human' );
@@ -153,7 +153,7 @@ class JobController extends BaseController
     {
 
         if (
-            Input::get( 'honeypot' ) !== '' ||
+            Input::get( 'terms' ) !== '' ||
             preg_match( '/^https?:\/\//', Input::get( 'title' ) ) ||
             Input::get( 'company' ) == 'google' ||
             preg_match( '/\.ru$/', Input::get( 'poster_email' ) )
