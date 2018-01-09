@@ -90,6 +90,7 @@ class JobController extends BaseController
                     function ($m) use ($data, $attachment) {
                         $m->to(trim( $data['company_email'] ));
                         $m->bcc(trim( $data['apply_email'] ));
+                        $m->replyTo(trim( $data['apply_email'] ));
                         if ($attachment) {
                             $m->attach($attachment);
                         }
