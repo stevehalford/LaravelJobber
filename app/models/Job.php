@@ -19,7 +19,7 @@ class Job extends Ardent
         'description' => 'required',
         'company' => 'required',
         'poster_email' => 'required|email',
-        'recaptcha_response_field' => 'sometimes|required|recaptcha',
+        // 'recaptcha_response_field' => 'sometimes|required|recaptcha',
     );
 
     public function afterValidate() {

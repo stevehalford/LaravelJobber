@@ -33,13 +33,13 @@
                     </td>
                 </tr>
                 <tr><td colspan="2">&nbsp;</td></tr>
-                <tr>
+                <!-- <tr>
                     <td>{{ Form::label('recaptcha_response_field', 'Anti-spam') }}</td>
                     <td>
                         {{ Form::captcha() }}
                         {{ $errors->first('recaptcha_response_field', '<span class="help-inline">:message</span>') }}
                     </td>
-                </tr>
+                </tr> -->
                 <tr>
                     <td colspan="2">
                         {{ Form::submit('submit', array('id' => 'submit')) }} or

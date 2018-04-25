@@ -96,11 +96,11 @@
             {{ Form::checkbox('apply_online', 1, true) }}
             <strong>Allow Online Applications</strong> (If you are unchecking it, then add a description on how to apply online above)
         </fieldset>
-        <fieldset>
+        <!-- <fieldset>
             <legend>Anti-spam</legend>
             {{ Form::captcha() }}
             {{ $errors->first('recaptchaResponse', '<span class="help-inline">:message</span>') }}
-        </fieldset>
+        </fieldset> -->
         <fieldset>
             <input type="submit" name="submit" id="submit" value="Step 2. Verify ad" />
         </fieldset>

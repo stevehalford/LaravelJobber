@@ -8,7 +8,7 @@ class Application extends Ardent
 
     public static $rules = array(
         'job_id' => 'required',
-        'recaptcha_response_field' => 'sometimes|required|recaptcha',
+        // 'recaptcha_response_field' => 'sometimes|required|recaptcha',
     );
 
     public function afterValidate() {
