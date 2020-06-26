@@ -108,7 +108,6 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Thujohn\Rss\RssServiceProvider',
 		'MaxHoffmann\Parsedown\ParsedownServiceProvider',
-		'Greggilbert\Recaptcha\RecaptchaServiceProvider',
 
 	),
 

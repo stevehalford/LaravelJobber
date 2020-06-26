@@ -12,7 +12,6 @@ class Application extends Ardent
     );
 
     public function afterValidate() {
-        unset($this->recaptcha_response_field);
         return true;
     }
 

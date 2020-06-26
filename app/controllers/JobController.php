@@ -173,8 +173,6 @@ class JobController extends BaseController
         $job->outside_location = Input::get('location_outside_ro_where');
         $job->ip = Request::getClientIp();
 
-        $job->recaptcha_response_field = Input::get('recaptcha_response_field');
-
         if (Input::get('city_id')) {
             $job->city_id = Input::get('city_id');
         }
