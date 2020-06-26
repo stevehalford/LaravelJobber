@@ -3,12 +3,11 @@
 	"description": "The Laravel Framework.",
 	"keywords": ["framework", "laravel"],
 	"require": {
-		"laravel/framework": "4.2.*",
+		"laravel/framework": "4.2.22",
 		"laravelbook/ardent": "2.*",
 		"thujohn/rss": "dev-master",
 		"netcarver/textile": "3.5.*",
 		"maxhoffmann/parsedown-laravel": "dev-master",
-		"greggilbert/recaptcha": "dev-master",
 		"leafo/lessphp": "^0.4.0@dev"
 	},
 	"autoload": {
@@ -19,20 +18,6 @@
 			"app/database/migrations",
 			"app/database/seeds",
 			"app/tests/TestCase.php"
-		]
-	},
-	"scripts": {
-		"post-install-cmd": [
-			"php artisan optimize"
-		],
-		"pre-update-cmd": [
-			"php artisan clear-compiled"
-		],
-		"post-update-cmd": [
-			"php artisan optimize"
-		],
-		"post-create-project-cmd": [
-			"php artisan key:generate"
 		]
 	},
 	"config": {
