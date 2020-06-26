@@ -4,7 +4,7 @@ return array(
 
     'debug' => false,
 
-    'parseNotify' => true,
+    'parseNotify' => false,
 
     'url' => 'https://www.designjobswales.co.uk',
     'key' => 'PczpJxuwgaXZkX0joy8XuMXnExbDOuxD'

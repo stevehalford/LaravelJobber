@@ -221,7 +221,6 @@ class JobController extends BaseController
             $this->sendPublishEmailToAdmin($job);
 
             if ($job->is_active) {
-                if (Config::get('app.parseNotify')) $this->parseNotify($job);
                 $this->jobPostedEmail($job);
                 return Redirect::action('JobController@show', $job->id)->with('success', 'Job posted successfully');
             } else {
@@ -317,7 +316,6 @@ class JobController extends BaseController
         $job->is_active = 1;
 
         if ($job->save()) {
-            if (Config::get('app.parseNotify')) $this->parseNotify($job);
             $this->jobPostedEmail($job);
             return Redirect::to('/')->with('success', 'Job activated successfully');;
         }
@@ -340,34 +338,6 @@ class JobController extends BaseController
         }
 
         return Redirect::action('JobController@show', $job->id)->with('error', 'Sorry, job could not be deactivated');
-    }
-
-    private function parseNotify($job)
-    {
-        // Parse notification
-        $ch = curl_init();
-
-        $fields = array(
-            'where' => array(
-                'deviceType' => 'ios'
-            ),
-            'data' => array(
-                'alert' => 'New Job Posted: '.$job->title
-            )
-        );
-
-        curl_setopt($ch, CURLOPT_URL,"https://api.parse.com/1/push");
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-            "X-Parse-Application-Id: " . Config::get('secrets.parse-app-id'),
-            "X-Parse-REST-API-Key: " . Config::get('secrets.parse-api-key'),
-            "Content-Type: application/json"
-        ));
-        curl_setopt($ch,CURLOPT_POST, count($fields));
-        curl_setopt($ch,CURLOPT_POSTFIELDS, json_encode($fields));
-
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $server_output = curl_exec ($ch);
-        curl_close ($ch);
     }
 
     private function setFirstTimePublisherEmail($job) {
