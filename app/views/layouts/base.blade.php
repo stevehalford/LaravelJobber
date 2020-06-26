@@ -11,14 +11,14 @@
     <meta property="og:description" content="@yield('description', 'Design Jobs Wales makes it easy for agencies and recruiters to fill design jobs in Wales and is a must for design related professionals in Wales.')">
     <meta property="og:type" content="article">
     <meta property="og:url" content="">
-    <meta property="og:image" content="http://www.designjobswales.co.uk/_templates/djw/img/djw-logo.png">
+    <meta property="og:image" content="https://www.designjobswales.co.uk/_templates/djw/img/djw-logo.png">
 
     <meta name="viewport" content="width=device-width">
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="shortcut icon" href="http://www.designjobswales.co.uk/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon-precomposed" href="http://www.designjobswales.co.uk/apple-touch-icon.png">
-    <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://www.designjobswales.co.uk/rss/all/">
+    <link rel="shortcut icon" href="https://www.designjobswales.co.uk/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon-precomposed" href="https://www.designjobswales.co.uk/apple-touch-icon.png">
+    <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="https://www.designjobswales.co.uk/rss/all/">
     <link rel="stylesheet" href="{{ Config::get('app.url') }}/css/compiled.css" type="text/css">
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

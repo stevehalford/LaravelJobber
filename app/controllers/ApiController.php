@@ -26,7 +26,7 @@ class ApiController extends BaseController
                 'description' => $job->description,
                 'company' => $job->company,
                 'created_on' => $createdOnString,
-                'url' => 'http://www.designjobswales.co.uk/job/'.$job->id.'/'
+                'url' => 'https://www.designjobswales.co.uk/job/'.$job->id.'/'
             );
 
             if ($job->city) {

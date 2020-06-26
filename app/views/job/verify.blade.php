@@ -18,7 +18,7 @@
     <br />
 
     <h2>
-        <img src="http://www.designjobswales.co.uk/_templates/djw/img/icon-{{ $job->type->var_name }}.png" alt="{{ $job->type->name }}">
+        <img src="https://www.designjobswales.co.uk/_templates/djw/img/icon-{{ $job->type->var_name }}.png" alt="{{ $job->type->name }}">
         {{ $job->title }}
     </h2>
     <p>
