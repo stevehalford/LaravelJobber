@@ -54,7 +54,7 @@
         <div id="sidebar">
             <a href="{{ Config::get('app.url') }}/post/" title="" class="add btn">Post a job</a>
 
-            @include('partials/influads')
+            @include('partials/ads')
 
         </div><!-- #sidebar -->
 
