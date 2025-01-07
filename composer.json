@@ -6,7 +6,7 @@
 		"laravel/framework": "4.2.*",
 		"laravelbook/ardent": "2.*",
 		"thujohn/rss": "dev-master",
-		"netcarver/textile": "3.5.*",
+		"netcarver/textile": "4.1.*",
 		"maxhoffmann/parsedown-laravel": "dev-master",
 		"leafo/lessphp": "^0.4.0@dev"
 	},
