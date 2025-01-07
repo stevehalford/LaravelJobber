@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ee914792a19630ff420fed9bd068215f",
+    "content-hash": "acb41fb1433a8cace04194c38dbdf5ad",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -727,28 +727,34 @@
         },
         {
             "name": "netcarver/textile",
-            "version": "3.5.x-dev",
+            "version": "v4.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/textile/php-textile.git",
-                "reference": "5d4ace919b843e181d5d966d3241046c5f2362e8"
+                "reference": "a16ccd9e7c5ab758cf66fca5ab2b39eaae1b616c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/textile/php-textile/zipball/5d4ace919b843e181d5d966d3241046c5f2362e8",
-                "reference": "5d4ace919b843e181d5d966d3241046c5f2362e8",
+                "url": "https://api.github.com/repos/textile/php-textile/zipball/a16ccd9e7c5ab758cf66fca5ab2b39eaae1b616c",
+                "reference": "a16ccd9e7c5ab758cf66fca5ab2b39eaae1b616c",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "5.7.*",
-                "satooshi/php-coveralls": "0.6.*",
+                "phpstan/phpstan": "1.12.11",
+                "phpunit/phpunit": "^9.5.20",
+                "psy/psysh": "^0.12.4",
                 "squizlabs/php_codesniffer": "3.*",
-                "symfony/yaml": "2.4.*"
+                "symfony/yaml": "^5.4.40"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.1-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Netcarver\\Textile\\": "src/Netcarver/Textile/"
@@ -771,7 +777,12 @@
                 "plaintext",
                 "textile"
             ],
-            "time": "2018-11-18T10:23:06+00:00"
+            "support": {
+                "issues": "https://github.com/textile/php-textile/issues",
+                "source": "https://github.com/textile/php-textile",
+                "wiki": "https://github.com/textile/php-textile/wiki"
+            },
+            "time": "2025-01-07T14:11:32+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -2303,5 +2314,6 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.6.0"
 }
